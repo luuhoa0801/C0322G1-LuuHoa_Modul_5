@@ -1,0 +1,267 @@
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Customer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" style="width: 90%;margin:10px auto">
+        <div class="col-md-2">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="logo " class="img-fluid"
+                 style="height: 120px">
+        </div>
+
+        <div class="col-md-4">
+            <div>
+                <img src="https://smartdata.tonytemplates.com/bestel/wp-content/uploads/2018/05/widget-tripadvisor-logo.png"
+                     alt="">
+            </div>
+            <div>
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/widget-tripadvisor-rating.png"
+                     alt="">
+            </div>
+            <div>
+                <div class="widget-tripadvisor-text">2,746 Reviews</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="header-contact-txt">
+                <p>
+                    103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà Nẵng, Việt Nam
+                </p>
+                <p class="txt-sm"></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="header-contact-txt">
+                <span style="margin:0 "> Phone: 84-236-3847 333/888 </span>
+                <p class="txt-sm"></p>
+                <span>Email: reservation@furamavietnam.com</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: white">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="customer" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Customer
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">List Customer</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="service" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Facility
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">List Facility</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="contract" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Contract
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">List Contract</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--            <form class="d-flex">-->
+            <!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+            <!--                <button class="btn btn-outline-success" type="submit" style="color: white">Search</button>-->
+            <!--            </form>-->
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2rem">
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</nav>
+
+<table id="tableCustomer" class="table table-success table-striped"
+       border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>BirthDay</th>
+        <th>Gender</th>
+        <th>IdCard</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>status</th>
+        <th>CustomerType</th>
+        <th>Chỉnh sửa</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="customer,loop : ${listCustomer}">
+        <td th:text="${customer.id}">1</td>
+        <td th:text="${customer.name}">Hòa</td>
+        <td th:text="${customer.birthday}">11/1/1995</td>
+        <td th:text="${customer.gender}">Nam</td>
+        <td th:text="${customer.id_card}">012345678</td>
+        <td th:text="${customer.phone}">0978123456</td>
+        <td th:text="${customer.email}">luuhoa@gmail.com</td>
+        <td th:text="${customer.address}">Duy Trung, Duy Xuyen, Quảng Nam</td>
+        <td th:text="${customer.status}">0</td>
+        <td th:text="${customer.customerType.name}">Gold</td>
+        <td>
+            <button type="button" class="btn btn-primary">
+                <a th:href="@{{id}/edit(id=${customer.id})}">Edit</a>
+            </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Delete
+            </button>
+        </td>
+    </tr>
+    <tr th:each="customer,loop : ${listCustomer}">
+        <td th:text="${customer.id}">2</td>
+        <td th:text="${customer.name}">Quang</td>
+        <td th:text="${customer.birthday}">10/10/1999</td>
+        <td th:text="${customer.gender}">Nam</td>
+        <td th:text="${customer.id_card}">012345679</td>
+        <td th:text="${customer.phone}">0789222222</td>
+        <td th:text="${customer.email}">quang@gmail.com</td>
+        <td th:text="${customer.address}">Duy Trung, Duy Xuyen, Quảng Nam</td>
+        <td th:text="${customer.status}">0</td>
+        <td th:text="${customer.customerType.name}">Diamond</td>
+        <td>
+            <button type="button" class="btn btn-primary">
+                <a th:href="@{{id}/edit(id=${customer.id})}">Edit</a>
+            </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Delete
+            </button>
+        </td>
+    </tr>
+    <tr th:each="customer,loop : ${listCustomer}">
+
+        <td th:text="${customer.id}">3</td>
+        <td th:text="${customer.name}">Nghĩa</td>
+        <td th:text="${customer.birthday}">09/11/1998</td>
+        <td th:text="${customer.gender}">Nữ</td>
+        <td th:text="${customer.id_card}">012345679</td>
+        <td th:text="${customer.phone}">0789222222</td>
+        <td th:text="${customer.email}">quang@gmail.com</td>
+        <td th:text="${customer.address}">Quảng Ngãi</td>
+        <td th:text="${customer.status}">0</td>
+        <td th:text="${customer.customerType.name}">Member</td>
+        <td>
+            <button type="button" class="btn btn-primary">
+                <a th:href="@{{id}/edit(id=${customer.id})}">Edit</a>
+            </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Delete
+            </button>
+        </td>
+    </tr>
+
+    </tbody>
+    <tr>
+        <th colspan="11">
+            <div class="w-100 footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomer ">
+                    <a href="http://localhost:63342/casestudy/furama/customer/create.html?_
+                    ijt=9obt2hc9j013ekajicia6rp04t" class="text-white"> Create</a>
+                </button>
+            </div>
+        </th>
+    </tr>
+
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title " style="color: red" id="exampleModalLabel">Cảnh Báo !!! </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa ... hay không ???
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <span>
+        <a th:if="${listCustomer.hasPrevious()}" th:href="@{/customer(page = ${listCustomer.number - 1})}">Previous</a>
+    </span>
+    <span th:text="${listCustomer.number +1 }"> </span> /
+    <span th:text="${listCustomer.totalPages}"> </span>
+    <span>
+        <a th:if="${listCustomer.hasNext()}" th:href="@{/customer(page = ${listCustomer.number +1})}">Next</a>
+    </span>
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+</script>
+
+
+<script>
+    var customerId;
+
+    function customerIndex(index, name) {
+        customerId = index;
+        document.getElementById("name").innerHTML = "bạn có muốn xóa không ? <br>" + name;
+    };
+
+    function customerIndex2() {
+        link = "/customer/delete/" + customerId;
+        window.location.href = link;
+    };
+</script>
+
+</html>
