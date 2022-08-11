@@ -1,0 +1,92 @@
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm mới Hợp đồng</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .center-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .head-text {
+            font-size: 30px;
+            font-weight: bold;
+            height: 10%;
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+<div class="container">
+    <div class="bg-white">
+        <div class="h1 center-box "> Thêm mới Contract</div>
+        <form th:action="@{/contract/create}" method="post" class="p-3" th:object="${contract}">
+            <div class="form-group">
+                <label>Nhập ngày bắt đầu:</label>
+                <input type="date" class="form-control" placeholder="Enter name" th:field="*{startDate}">
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+                <label>Ngày kết thúc:</label>
+                <input type="date" class="form-control" placeholder="Enter birthday" th:field="*{endDate}">
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+                <label>Số lượng hợp đồng:</label>
+                <input type="text" class="form-control" placeholder="Enter CMND" th:field="*{deposit}">
+            </div>
+
+            <div class="form-group" style="margin-top: 1.5rem">
+                <select class="form-control custom-select bg-light" th:field="*{customer.id}">
+                    <option th:each="customer:${listCustomer}" th:value="${customer.id}"
+                            th:text="${customer.name}"> Khách hàng
+                    </option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+                <select class="form-control custom-select bg-light" th:field="*{employee.id}">
+                    <option th:each="employee:${listEmployee}" th:value="${employee.id}"
+                            th:text="${employee.name}"> Nhân viên
+                    </option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+                <select class="form-control custom-select bg-light" th:field="*{facility.id}">
+                    <option th:each="facility:${listFacility}" th:value="${facility.id}"
+                            th:text="${facility.name}"> Danh sách dịch vụ
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.5rem">
+                <label>Dịch vụ đính kèm:</label>
+                <button class="btn btn-primary" type="submit">+</button>
+
+            </div>
+
+
+            <div class="form-group" style="margin-top: 1.5rem">
+                <button type="submit" class="btn btn-primary">Thêm mới hợp đồng</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous">
+</script>
+
+</html>

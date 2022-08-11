@@ -3,11 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Contract</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+</head>
 <body>
 
-<div class="container-fluid" >
+<!--header-->
+<div class="container-fluid">
     <div class="row" style="width: 90%;margin:10px auto">
         <div class="col-md-2">
             <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="logo " class="img-fluid"
@@ -37,128 +40,115 @@
         </div>
         <div class="col-md-4"  >
             <div class="header-contact-txt"  >
-                <span style="margin-left: 5rem"> Phone: 84-236-3847 333/888 </span>
+                <span style="margin-left: 7rem"> Phone: 84-236-3847 333/888 </span>
                 <p class="txt-sm"></p>
-                <span style="margin-left: 5rem">Email: reservation@furamavietnam.com</span>
+                <span style="margin-left: 7rem">Email: reservation@furamavietnam.com</span>
             </div>
         </div>
     </div>
 </div>
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid">
         <a class="navbar-brand" href="#" style="color: white">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown" style="margin-left: 1.5rem">
-                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="customer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="customers" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Customer
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">List Customer</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown" style="margin-left: 1.5rem">
-                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="service" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="service" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Facility
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">List Facility</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown" style="margin-left: 1.5rem">
-                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="contract" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="contract" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Contract
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">List Contract</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
             </ul>
-            <!--                <form class="d-flex">-->
-            <!--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-            <!--                    <button class="btn btn-outline-success" type="submit" style="color: white">Search</button>-->
-            <!--                </form>-->
+            <!--            <form class="d-flex">-->
+            <!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+            <!--                <button class="btn btn-outline-success" type="submit" style="color: white">Search</button>-->
+            <!--            </form>-->
         </div>
     </div>
 </nav>
+<!--header-->
 
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2rem">
-    <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-</nav>
-
-<table id="tableCustomer" class="table table-success table-striped"
+<div class="row" style="height: 2rem"></div>
+<table id="tableContract" class="table table-success table-striped"
        border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Tên</th>
-        <th>Diệntích</th>
-        <th>Phíthuê</th>
-        <th>Max người</th>
-        <th>Tiêu chuẩn phòng</th>
-        <th>Mô tả #</th>
-        <th>Diện tích hồ bơi</th>
-        <th>Số tầng</th>
-        <th>Dịch vụ Free #</th>
-        <th>status</th>
-        <th>RentType</th>
-        <th>FacilityType</th>
-        <th>Chỉnh sửa</th>
+        <th>ID</th>
+        <th>Ngày bắt đầu</th>
+        <th>Ngày kết thúc</th>
+        <th>Số lượng</th>
+        <th>Nhân viên</th>
+        <th>Khách hàng</th>
+        <th>Dịch vụ</th>
+        <th>Các dịch vụ đi kèm</th>
     </tr>
     </thead>
     <tbody>
-
-    <tr th:each="facility,loop : ${listFacility}">
-        <td th:text="${facility.id}"></td>
-        <td th:text="${facility.name}"></td>
-        <td th:text="${facility.area}"></td>
-        <td th:text="${facility.cost}"></td>
-        <td th:text="${facility.maxPeople}"></td>
-        <td  th:text="${facility.standardRoom}"></td>
-        <td  th:text="${facility.descriptionOtherConvenience}"></td>
-        <td  th:text="${facility.poolArea}"></td>
-        <td  th:text="${facility.numberOfFloors}"></td>
-        <td  th:text="${facility.facilityFree}"></td>
-        <td th:text="${facility.status}"></td>
-        <td th:text="${facility.rentType.name}"></td>
-        <td th:text="${facility.facilityType.name}"></td>
+    <tr th:each="contract,loop : ${listContract}">
+        <td th:text="${contract.id}"></td>
+        <td th:text="${contract.startDate}"></td>
+        <td th:text="${contract.endDate}"></td>
+        <td th:text="${contract.deposit}"></td>
+        <td th:text="${contract.employee.name}"></td>
+        <td th:text="${contract.customer.name}"></td>
+        <td th:text="${contract.facility.name}"></td>
         <td>
-            <a th:href="@{{id}/edit(id=${facility.id})}">Edit</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                +
+            </button>
 
-            <a href="#" th:attr="onclick=|customerIndex('${facility.id}','${facility.name}')|"
-               data-toggle="modal"
-               data-target="#delete">
-                Delete
-            </a>
-
+            <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
         </td>
+
     </tr>
 
+    </tbody>
     <tr>
-        <th colspan="14">
+        <th colspan="11">
             <div class="w-100 footer">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomer ">
-                    Create
+                <button type="button"  class="btn btn-primary"   >
+                    <a href="http://localhost:63342/casestudy/furama/contract/create.html?_ijt=8drl7sato2pcn8tqohetb9annj"
+                       style="color:white"> Thêm mới</a>
                 </button>
             </div>
         </th>
@@ -167,49 +157,56 @@
 </table>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Chọn thuộc tính muốn thêm mới</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-footer border-0">
-                <a type="submit" class="btn btn-dark" style="margin-right: 50px; font-size: 1.5rem" id="villa"
-                   href="create/Villa">
-                    Villa
-                </a>
-
-                <a type="submit" class="btn btn-dark" style="margin-right: 50px; font-size: 1.5rem" id="house"
-                   href="create/House">
-                    House
-                </a>
-
-                <a type="submit" class="btn btn-dark" style="margin-right: 50px; font-size: 1.5rem" id="room"
-                   href="create/Room">
-                    Room
-                </a>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="modal" id="delete">
+<!-- Modal + -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title w-100 text-center" id="name"></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title" id="exampleModalLabel">Tạo mới hợp đồng chi tiết</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label >Ngày bắt đầu:</label>
+                    <input type="date" class="form-control" id="1">
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem">
+                    <label>Ngày kết thúc:</label>
+                    <input type="date" class="form-control"  id="2" >
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem">
+                    <label>Số tiền gửi:</label>
+                    <input type="text" class="form-control"  id="3" >
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem">
+                    <label>Tổng tiền:</label>
+                    <input type="text" class="form-control"  id="4" >
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem">
+                    <select name="customer" class="form-control custom-select bg-light" id="customer">
+                        <option th:each="customer:${listCustomer}" th:value="${customer.id}"
+                                th:text="${customer.name}"> Khách hàng thuê
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem">
+                    <select name="facility" class="form-control custom-select bg-light" id="facility">
+                        <option th:each="facility:${listFacility}" th:value="${facility.id}"
+                                th:text="${facility.name}"> Dịch vụ
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem">
+                    <label>Dịch vụ đi kèm:</label>
+                    <button type="button" class=" btn btn-primary" >
+                        +
+                    </button>
+                </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark" onclick="customerIndex2()">
-                    <a class="text-white">Xóa</a>
-                </button>
-                <button type="button" class="btn btn-dark " data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -217,33 +214,20 @@
 
 <div>
     <span>
-        <a th:if="${listFacility.hasPrevious()}"
-           th:href="@{/service/facility(page = ${listFacility.number - 1},name = ${name})}">Previous</a>
+        <a th:if = "${listContract.hasPrevious()}" th:href="@{/contract/contract(page = ${listContract.number - 1})}" >Previous</a>
     </span>
-    <span th:text="${listFacility.number +1 }"> </span> /
-    <span th:text="${listFacility.totalPages}"> </span>
+    <span th:text="${listContract.number +1 }"> </span> /
+    <span th:text="${listContract.totalPages}"> </span>
     <span>
-        <a th:if="${listFacility.hasNext()}"
-           th:href="@{/service/facility(page = ${listFacility.number +1},name = ${name})}">Next</a>
+        <a th:if = "${listContract.hasNext()}" th:href="@{/contract/contract(page = ${listContract.number +1})}">Next</a>
     </span>
 </div>
 
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    var facilityId;
-
-    function customerIndex(index, name) {
-        facilityId = index;
-        document.getElementById("name").innerHTML = "bạn có muốn xóa không ? <br>" + name;
-    };
-
-    function customerIndex2() {
-        link = "/service/facility/delete/" + facilityId;
-        window.location.href = link;
-    };
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous">
 </script>
 
 
