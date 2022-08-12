@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss1_typescript/exercise/fibonacci" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss1_typescript/practice/object_learning geometry/ typescript-promise" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss1_typescript/practice/object_learning geometry/typescript-is-prime" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss1_typescript/practice/typescript-control-flow-and-loop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss1_typescript/practice/typescript-is-prime" vcs="Git" />
+  </component>
+</project>
