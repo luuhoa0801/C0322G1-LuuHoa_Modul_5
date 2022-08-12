@@ -47,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid">
         <a class="navbar-brand" href="http://localhost:63342/casestudy/home.html?_ijt=2itc8brq0k5heq7fhao3budbeb"
@@ -58,7 +57,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown" style="margin-left: 1.5rem">
-                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="customer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a style="color: white" class="nav-link dropdown-toggle" href="#" id="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Customer
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -107,12 +106,20 @@
 </nav>
 <!--header-->
 
-<div class="row" style="height: 2rem"></div>
+<div class="row" style="margin-top: 1rem">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="row fs-2" style="margin-left: 23rem">
+            <p style="font-weight: 700"> List Contract</p>
+        </div>
+    </div>
+</div>
+
 <table id="tableContract" class="table table-success table-striped"
        border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>No.</th>
         <th>Ngày bắt đầu</th>
         <th>Ngày kết thúc</th>
         <th>Số lượng</th>
@@ -123,14 +130,49 @@
     </tr>
     </thead>
     <tbody>
+
     <tr th:each="contract,loop : ${listContract}">
-        <td th:text="${contract.id}"></td>
-        <td th:text="${contract.startDate}"></td>
-        <td th:text="${contract.endDate}"></td>
-        <td th:text="${contract.deposit}"></td>
-        <td th:text="${contract.employee.name}"></td>
-        <td th:text="${contract.customer.name}"></td>
-        <td th:text="${contract.facility.name}"></td>
+        <td th:text="${contract.id}">1</td>
+        <td th:text="${contract.startDate}">20/10/2022</td>
+        <td th:text="${contract.endDate}">21/10/2022</td>
+        <td th:text="${contract.deposit}">1</td>
+        <td th:text="${contract.employee.name}">Nguyễn Văn A</td>
+        <td th:text="${contract.customer.name}"> Trịnh Hoàng B</td>
+        <td th:text="${contract.facility.name}"> Villa</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                +
+            </button>
+
+            <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
+        </td>
+
+    </tr>
+    <tr th:each="contract,loop : ${listContract}">
+        <td th:text="${contract.id}">2</td>
+        <td th:text="${contract.startDate}">22/11/2022</td>
+        <td th:text="${contract.endDate}">24/11/2022</td>
+        <td th:text="${contract.deposit}">2</td>
+        <td th:text="${contract.employee.name}">Nguyễn Thị Đạt</td>
+        <td th:text="${contract.customer.name}"> Hoàng Văn Thịnh</td>
+        <td th:text="${contract.facility.name}"> House</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                +
+            </button>
+
+            <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
+        </td>
+
+    </tr>
+    <tr th:each="contract,loop : ${listContract}">
+        <td th:text="${contract.id}">3</td>
+        <td th:text="${contract.startDate}">09/10/2021</td>
+        <td th:text="${contract.endDate}">21/10/2021</td>
+        <td th:text="${contract.deposit}">1</td>
+        <td th:text="${contract.employee.name}">Nguyễn Viết Hùng</td>
+        <td th:text="${contract.customer.name}"> Nguyễn Văn Tả</td>
+        <td th:text="${contract.facility.name}"> Room</td>
         <td>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 +
@@ -190,9 +232,9 @@
                 </div>
                 <div class="form-group" style="margin-top: 1.5rem">
                     <select name="facility" class="form-control custom-select bg-light" id="facility">
-                        <option th:each="facility:${listFacility}" th:value="${facility.id}"
-                                th:text="${facility.name}"> Dịch vụ
-                        </option>
+                        <option value="1">Villa</option>
+                        <option value="1">House</option>
+                        <option value="1">Room</option>
                     </select>
                 </div>
                 <div class="form-group" style="margin-top: 1.5rem">
