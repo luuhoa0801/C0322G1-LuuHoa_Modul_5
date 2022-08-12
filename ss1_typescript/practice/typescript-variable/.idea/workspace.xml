@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c2d458-6fd9-4fe6-91e2-40d4318bf40f" name="Default Changelist" comment="">
+    <list default="true" id="16801e6e-2d9b-4f1f-a8e9-89be5efffb2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../casestudy/furama/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/furama/contract/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/furama/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/furama/customer/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../casestudy/furama/facility/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/furama/facility/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/header/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/header/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../test/New Text Documeant.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -11,10 +39,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="2DDLJB49aU4Ct5L9pshs0ZHi3oP" />
+  <component name="ProjectId" id="2DEZcsWe9HyhOrGknqQNpDSMEAO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,23 +58,42 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\Backup\F\C0322G1_Modul5\ss1_typescript\practice\typescript-variable\node_modules\typescript\lib" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c3c2d458-6fd9-4fe6-91e2-40d4318bf40f" name="Default Changelist" comment="" />
-      <created>1660228633338</created>
+      <changelist id="16801e6e-2d9b-4f1f-a8e9-89be5efffb2c" name="Default Changelist" comment="" />
+      <created>1660266286016</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1660228633338</updated>
-      <workItem from="1660228634556" duration="198000" />
+      <updated>1660266286016</updated>
+      <workItem from="1660266287234" duration="1729000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
