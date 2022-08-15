@@ -1,0 +1,83 @@
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thêm mới Hợp đồng</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <style>
+    .center-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .head-text {
+      font-size: 30px;
+      font-weight: bold;
+      height: 10%;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body class="bg-dark">
+<div class="container">
+  <div class="bg-white">
+    <div class="h1 center-box "> Thêm mới Contract</div>
+    <form  class="p-3" th:object="${contract}">
+      <div class="form-group">
+        <label>Nhập ngày bắt đầu:</label>
+        <input type="date" class="form-control" placeholder="Enter name" th:field="*{startDate}">
+      </div>
+      <div class="form-group" style="margin-top: 1.5rem">
+        <label>Ngày kết thúc:</label>
+        <input type="date" class="form-control" placeholder="Enter birthday" th:field="*{endDate}">
+      </div>
+      <div class="form-group" style="margin-top: 1.5rem">
+        <label>Số lượng hợp đồng:</label>
+        <input type="text" class="form-control" placeholder="Enter CMND" th:field="*{deposit}">
+      </div>
+
+      <div class="form-group" style="margin-top: 1.5rem">
+        <select class="form-control custom-select bg-light" th:field="*{customer.id}">
+          <option > Khách hàng
+          </option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-top: 1.5rem">
+        <select class="form-control custom-select bg-light" th:field="*{employee.id}">
+          <option > Nhân viên
+          </option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-top: 1.5rem">
+        <select class="form-control custom-select bg-light" th:field="*{facility.id}">
+          <option value="1">Villa</option>
+          <option value="1">House</option>
+          <option value="1">Room</option>
+        </select>
+      </div>
+
+      <div class="form-group" style="margin-top: 1.5rem">
+        <label>Dịch vụ đính kèm:</label>
+        <button class="btn btn-primary" type="submit">+</button>
+
+      </div>
+
+
+      <div class="form-group" style="margin-top: 1.5rem">
+        <button type="submit" class="btn btn-primary">Thêm mới hợp đồng</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+</body>
+
+</html>

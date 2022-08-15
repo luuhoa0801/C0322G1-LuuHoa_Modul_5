@@ -1,0 +1,175 @@
+<html lang="en">
+<html >
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Contract</title>
+
+</head>
+<body>
+
+<!--header-->
+
+<!--header-->
+
+<div class="row" style="margin-top: 1rem">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="row fs-2" style="margin-left: 23rem">
+      <p style="font-weight: 700"> List Contract</p>
+    </div>
+  </div>
+</div>
+
+<table id="tableContract" class="table table-success table-striped"
+       border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Ngày bắt đầu</th>
+    <th>Ngày kết thúc</th>
+    <th>Số lượng</th>
+    <th>Nhân viên</th>
+    <th>Khách hàng</th>
+    <th>Dịch vụ</th>
+    <th>Các dịch vụ đi kèm</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr >
+    <td >1</td>
+    <td >20/10/2022</td>
+    <td >21/10/2022</td>
+    <td >1</td>
+    <td >Nguyễn Văn A</td>
+    <td > Trịnh Hoàng B</td>
+    <td > Villa</td>
+    <td>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        +
+      </button>
+
+      <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
+    </td>
+
+  </tr>
+  <tr >
+    <td >2</td>
+    <td >22/11/2022</td>
+    <td >24/11/2022</td>
+    <td >2</td>
+    <td >Nguyễn Thị Đạt</td>
+    <td > Hoàng Văn Thịnh</td>
+    <td > House</td>
+    <td>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        +
+      </button>
+
+      <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
+    </td>
+
+  </tr>
+  <tr >
+    <td >3</td>
+    <td >09/10/2021</td>
+    <td >21/10/2021</td>
+    <td >1</td>
+    <td >Nguyễn Viết Hùng</td>
+    <td > Nguyễn Văn Tả</td>
+    <td > Room</td>
+    <td>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        +
+      </button>
+
+      <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
+    </td>
+
+  </tr>
+
+  </tbody>
+  <tr>
+    <th colspan="11">
+      <div class="w-100 footer">
+        <button type="button"  class="btn btn-primary"   >
+          <a href="http://localhost:63342/casestudy/furama/contract/create.html?_ijt=8drl7sato2pcn8tqohetb9annj"
+             style="color:white"> Thêm mới</a>
+        </button>
+      </div>
+    </th>
+  </tr>
+
+</table>
+
+
+<!-- Modal + -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tạo mới hợp đồng chi tiết</h5>
+
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label >Ngày bắt đầu:</label>
+          <input type="date" class="form-control" id="1">
+        </div>
+        <div class="form-group" style="margin-top: 1.5rem">
+          <label>Ngày kết thúc:</label>
+          <input type="date" class="form-control"  id="2" >
+        </div>
+        <div class="form-group" style="margin-top: 1.5rem">
+          <label>Số tiền gửi:</label>
+          <input type="text" class="form-control"  id="3" >
+        </div>
+        <div class="form-group" style="margin-top: 1.5rem">
+          <label>Tổng tiền:</label>
+          <input type="text" class="form-control"  id="4" >
+        </div>
+        <div class="form-group" style="margin-top: 1.5rem">
+          <select name="customer" class="form-control custom-select bg-light" id="customer">
+            <option th:each="customer:${listCustomer}" th:value="${customer.id}"
+                    th:text="${customer.name}"> Khách hàng thuê
+            </option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-top: 1.5rem">
+          <select name="facility" class="form-control custom-select bg-light" id="facility">
+            <option value="1">Villa</option>
+            <option value="1">House</option>
+            <option value="1">Room</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-top: 1.5rem">
+          <label>Dịch vụ đi kèm:</label>
+          <button type="button" class=" btn btn-primary" >
+            +
+          </button>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy Bỏ</button>
+        <button type="button" class="btn btn-primary">Tạo hợp đòng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div>-->
+<!--    <span>-->
+<!--        <a th:if = "${listContract.hasPrevious()}" th:href="@{/contract/contract(page = ${listContract.number - 1})}" >Previous</a>-->
+<!--    </span>-->
+<!--  <span th:text="${listContract.number +1 }"> </span> /-->
+<!--  <span th:text="${listContract.totalPages}"> </span>-->
+<!--  <span>-->
+<!--        <a th:if = "${listContract.hasNext()}" th:href="@{/contract/contract(page = ${listContract.number +1})}">Next</a>-->
+<!--    </span>-->
+<!--</div>-->
+
+</body>
+
+
+</html>

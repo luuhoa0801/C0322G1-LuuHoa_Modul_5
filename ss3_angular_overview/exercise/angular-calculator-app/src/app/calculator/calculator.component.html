@@ -1,0 +1,11 @@
+<p>calculator works!</p>
+<input type="number" placeholder="number1" [(ngModel)]="number1"  >
+<br>
+<input type="number" placeholder="number2" [(ngModel)]="number2"  > {{err}}
+<br>
+<button (click)="addition()"> + </button>
+<button (click)="subtraction()"> - </button>
+<button (click)="multiplication()"> * </button>
+<button (click)="division()"> / </button>
+<br>
+<input type="text" readonly [(ngModel)]="result">
