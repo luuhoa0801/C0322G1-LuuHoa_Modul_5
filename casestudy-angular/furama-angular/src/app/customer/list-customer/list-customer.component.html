@@ -1,24 +1,36 @@
 <div class="row" style="margin-top: 1rem">
-  <div class="col-3">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2.5rem">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </nav>
-  </div>
+
   <div class="col-6">
-    <div class="row fs-2" style="margin-left: 25rem">
-      <p style="font-weight: 700"> List Customer</p>
+    <div class="row fs-2" style="margin-left: 53rem">
+      <p style="font-weight: 800">Customer</p>
     </div>
   </div>
+  <div class="col-2"></div>
+
+<!--  <div class="col-3">-->
+<!--    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2.5rem">-->
+<!--      <form class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--    </nav>-->
+<!--  </div>-->
+  <div class="col-3" >
+    <nav class="nav navbar-expand ">
+        <input type="search" class="form-control">
+        <button class="btn btn-primary" type="submit">search </button>
+    </nav>
+  </div>
+
 </div>
+
+
 
 <table id="tableCustomer" class="table table-success table-striped"
        border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
   <thead>
   <tr>
-    <th>ID</th>
+    <th>No.</th>
     <th>Name</th>
     <th>BirthDay</th>
     <th>Gender</th>
@@ -26,76 +38,34 @@
     <th>Phone</th>
     <th>Email</th>
     <th>Address</th>
-    <th>status</th>
     <th>CustomerType</th>
-    <th>Chỉnh sửa</th>
+    <th>Manipulation</th>
   </tr>
   </thead>
   <tbody>
-
-  <tr >
-    <td >1</td>
-    <td >Hòa</td>
-    <td >11/1/1995</td>
-    <td >Nam</td>
-    <td >012345678</td>
-    <td >0978123456</td>
-    <td >luuhoa@gmail.com</td>
-    <td >Duy Trung, Duy Xuyen, Quảng Nam</td>
-    <td >0</td>
-    <td >Gold</td>
+  <tr *ngFor="let temp of customer" >
+    <td >{{temp.id}}</td>
+    <td >{{temp.name}}</td>
+    <td >{{temp.birthday}}</td>
+    <td *ngIf="temp.gender==true">Nam</td>
+    <td  *ngIf="temp.gender==false">Nữ</td>
+    <td >{{temp.idCard}}</td>
+    <td >{{temp.phone}}</td>
+    <td >{{temp.email}}</td>
+    <td >{{temp.address}}</td>
+    <td >{{temp.customerType.name}}</td>
     <td>
       <button type="button" class="btn btn-primary">
         <a  href="http://localhost:4200/update-customer"  style="color: white">Edit</a>
       </button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Delete
-      </button>
-    </td>
-  </tr>
-  <tr >
-    <td >2</td>
-    <td >Quang</td>
-    <td >10/10/1999</td>
-    <td >Nam</td>
-    <td >012345679</td>
-    <td >0789222222</td>
-    <td >quang@gmail.com</td>
-    <td >Duy Trung, Duy Xuyen, Quảng Nam</td>
-    <td >0</td>
-    <td >Diamond</td>
-    <td>
-      <button type="button" class="btn btn-primary">
-        <a  href="http://localhost:4200/update-customer"  style="color: white">Edit</a>
-      </button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Delete
-      </button>
-    </td>
-  </tr>
-  <tr >
-
-    <td >3</td>
-    <td >Nghĩa</td>
-    <td >09/11/1998</td>
-    <td >Nữ</td>
-    <td >012345679</td>
-    <td >0789222222</td>
-    <td >quang@gmail.com</td>
-    <td >Quảng Ngãi</td>
-    <td >0</td>
-    <td >Member</td>
-    <td>
-      <button type="button" class="btn btn-primary" >
-        <a href="http://localhost:4200/update-customer"  style="color: white"> Edit </a>
-      </button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px">
         Delete
       </button>
     </td>
   </tr>
 
   </tbody>
+
   <tr>
     <th colspan="11">
       <div class="w-100 footer">
@@ -105,9 +75,15 @@
       </div>
     </th>
   </tr>
-
 </table>
-
+<div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
+  <button class="btn btn-light">Previous</button>
+  <button class="btn btn-light">1</button>
+  <button class="btn btn-light">2</button>
+  <button class="btn btn-light">3</button>
+  <button class="btn btn-light">4</button>
+  <button class="btn btn-light">Next</button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -128,16 +104,17 @@
   </div>
 </div>
 
-<script>
-  var customerId;
+<!--<script>-->
+<!--  var customerId;-->
 
-  function customerIndex(index, name) {
-    customerId = index;
-    document.getElementById("name").innerHTML = "bạn có muốn xóa không ? <br>" + name;
-  };
+<!--  function customerIndex(index, name) {-->
+<!--    customerId = index;-->
+<!--    document.getElementById("name").innerHTML = "bạn có muốn xóa không ? <br>" + name;-->
+<!--  };-->
 
-  function customerIndex2() {
-    link = "/customer/delete/" + customerId;
-    window.location.href = link;
-  };
-</script>
+<!--  function customerIndex2() {-->
+<!--    link = "/customer/delete/" + customerId;-->
+<!--    window.location.href = link;-->
+<!--  };-->
+<!--</script>-->
+

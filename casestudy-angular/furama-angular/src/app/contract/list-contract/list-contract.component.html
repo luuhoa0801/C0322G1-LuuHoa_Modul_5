@@ -7,10 +7,6 @@
 </head>
 <body>
 
-<!--header-->
-
-<!--header-->
-
 <div class="row" style="margin-top: 1rem">
   <div class="col-3"></div>
   <div class="col-6">
@@ -35,73 +31,41 @@
   </tr>
   </thead>
   <tbody>
-
-  <tr >
-    <td >1</td>
-    <td >20/10/2022</td>
-    <td >21/10/2022</td>
-    <td >1</td>
-    <td >Nguyễn Văn A</td>
-    <td > Trịnh Hoàng B</td>
-    <td > Villa</td>
+  <tr *ngFor="let temp of contract">
+    <td >{{temp.stt}}</td>
+    <td >{{temp.startDate}}</td>
+    <td >{{temp.endDate}}</td>
+    <td >{{temp.amount}}</td>
+    <td >{{temp.employee}}</td>
+    <td > {{temp.customer}}</td>
+    <td > {{temp.facility}}</td>
     <td>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         +
       </button>
-
-      <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
+      <a href="1" class="bg-primary text-white" style="margin-left: 1.5rem">Danh sách các dịch vụ đi kèm</a>
     </td>
-
   </tr>
-  <tr >
-    <td >2</td>
-    <td >22/11/2022</td>
-    <td >24/11/2022</td>
-    <td >2</td>
-    <td >Nguyễn Thị Đạt</td>
-    <td > Hoàng Văn Thịnh</td>
-    <td > House</td>
-    <td>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        +
-      </button>
-
-      <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
-    </td>
-
-  </tr>
-  <tr >
-    <td >3</td>
-    <td >09/10/2021</td>
-    <td >21/10/2021</td>
-    <td >1</td>
-    <td >Nguyễn Viết Hùng</td>
-    <td > Nguyễn Văn Tả</td>
-    <td > Room</td>
-    <td>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        +
-      </button>
-
-      <a href="" class="bg-primary text-white">Danh sách các dịch vụ đi kèm</a>
-    </td>
-
-  </tr>
-
   </tbody>
   <tr>
     <th colspan="11">
       <div class="w-100 footer">
         <button type="button"  class="btn btn-primary"   >
-          <a href="http://localhost:63342/casestudy/furama/contract/create.html?_ijt=8drl7sato2pcn8tqohetb9annj"
+          <a href="http://localhost:4200/create-contract"
              style="color:white"> Thêm mới</a>
         </button>
       </div>
     </th>
   </tr>
-
 </table>
-
+<div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
+  <button class="btn btn-light">Previous</button>
+  <button class="btn btn-light">1</button>
+  <button class="btn btn-light">2</button>
+  <button class="btn btn-light">3</button>
+  <button class="btn btn-light">4</button>
+  <button class="btn btn-light">Next</button>
+</div>
 
 <!-- Modal + -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -130,8 +94,7 @@
         </div>
         <div class="form-group" style="margin-top: 1.5rem">
           <select name="customer" class="form-control custom-select bg-light" id="customer">
-            <option th:each="customer:${listCustomer}" th:value="${customer.id}"
-                    th:text="${customer.name}"> Khách hàng thuê
+            <option > Khách hàng thuê
             </option>
           </select>
         </div>
@@ -144,32 +107,18 @@
         </div>
         <div class="form-group" style="margin-top: 1.5rem">
           <label>Dịch vụ đi kèm:</label>
-          <button type="button" class=" btn btn-primary" >
+          <button type="button" class=" btn btn-primary" style="margin-left: 1rem" >
             +
           </button>
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy Bỏ</button>
-        <button type="button" class="btn btn-primary">Tạo hợp đòng</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+        <button type="button" class="btn btn-primary">Tạo hợp đồng</button>
       </div>
     </div>
   </div>
 </div>
-
-<!--<div>-->
-<!--    <span>-->
-<!--        <a th:if = "${listContract.hasPrevious()}" th:href="@{/contract/contract(page = ${listContract.number - 1})}" >Previous</a>-->
-<!--    </span>-->
-<!--  <span th:text="${listContract.number +1 }"> </span> /-->
-<!--  <span th:text="${listContract.totalPages}"> </span>-->
-<!--  <span>-->
-<!--        <a th:if = "${listContract.hasNext()}" th:href="@{/contract/contract(page = ${listContract.number +1})}">Next</a>-->
-<!--    </span>-->
-<!--</div>-->
-
 </body>
-
-
 </html>

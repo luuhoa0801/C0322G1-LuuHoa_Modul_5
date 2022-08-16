@@ -2,78 +2,26 @@
 <body>
 <div class="row bg-info" style="height: 3rem">
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">
-    Launch demo modal
+    Create facility
   </button>
 </div>
 <!--body-->
 <div class="row row-cols-1 row-cols-md-3 g-4 bg-info">
-  <div class="col">
-    <div class="card h-100" style="width: 90%;margin: auto">
-      <img src="/assets/img/fu1.jpg" class="card-img-top" alt="abc">
+  <div class="col" *ngFor="let temp of facility">
+    <div class="card h-100" style="width: 90%;margin: auto" >
+      <img [src]="temp.url" class="card-img-top" alt="abc" >
       <div class="row">
-        <div class="col-6">
-          <div class="card-body">
-            <h5 class="card-title" style="margin-bottom: 0">OCEAN SUITE</h5>
-            <p class="card-text"> Room size : 85,8 m2</p>
+        <div class="col-6 " >
+          <div class="card-body" style="margin-left: 1rem">
+            <h5 class="card-title" style="margin-top: 1rem">{{temp.name}}</h5>
+            <p class="card-text" style="margin-top:1rem;font-weight: 700"> Room size : {{temp.area}} m2</p>
+            <h6 style="font-weight: 800;font-size: 1.2rem"> {{temp.cost}}$</h6>
           </div>
         </div>
         <div class="col-6">
-          <div class="card-body">
-            <button type="button" class="btn btn-danger" style="margin-right: 1rem"
-                    data-toggle="modal" data-target="#form-update">
-              Edit
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100" style="width: 90%;margin: auto">
-      <img src="/assets/img/fu2.jpg" class="card-img-top" alt="...">
-      <div class="row">
-        <div class="col-6">
-          <div class="card-body">
-            <h5 class="card-title" style="margin-bottom: 0">OCEAN STUDIO SUITE</h5>
-            <p class="card-text"> Room size :40,1 m2</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card-body">
-            <button type="button" class="btn btn-danger" style="margin-right: 1rem"
-                    data-toggle="modal" data-target="#form-update">
-              Edit
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                     data-bs-target="#exampleModal">
-            Delete
-          </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100" style="width: 90%;margin: auto">
-      <img src="/assets/img/fu3.jpg" class="card-img-top" alt="...">
-      <div class="row">
-        <div class="col-6">
-          <div class="card-body">
-            <h5 class="card-title" style="margin-bottom: 0">OCEAN DELUXE</h5>
-            <p class="card-text"> Room size :43,1 m2</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card-body">
-            <button type="button" class="btn btn-danger" style="margin-right: 1rem"
-                    data-toggle="modal" data-target="#form-update">
+          <div class="card-body " style="margin-top: 2.3rem;margin-left: 3rem" >
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#form-update"
+                    style="margin-right:1rem">
               Edit
             </button>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -85,90 +33,142 @@
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100" style="width: 90%;margin: auto">
-      <img src="/assets/img/fu1.jpg" class="card-img-top" alt="...">
-      <div class="row">
-        <div class="col-6">
-          <div class="card-body">
-            <h5 class="card-title" style="margin-bottom: 0">OCEAN SUITE</h5>
-            <p class="card-text"> Room size : 85,8 m2</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card-body">
-            <button type="button" class="btn btn-danger" style="margin-right: 1rem"
-                    data-toggle="modal" data-target="#form-update">
-              Edit
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100" style="width: 90%;margin: auto">
-      <img src="/assets/img/fu2.jpg" class="card-img-top" alt="...">
-      <div class="row">
-        <div class="col-6">
-          <div class="card-body">
-            <h5 class="card-title" style="margin-bottom: 0">OCEAN STUDIO SUITE</h5>
-            <p class="card-text"> Room size :40,1 m2</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card-body">
-            <button type="button" class="btn btn-danger" style="margin-right: 1rem"
-                    data-toggle="modal" data-target="#form-update">
-              Edit
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
+<!--  <div class="col">-->
+<!--    <div class="card h-100" style="width: 90%;margin: auto">-->
+<!--      <img src="/assets/img/fu2.jpg" class="card-img-top" alt="...">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title" style="margin-bottom: 0">OCEAN STUDIO SUITE</h5>-->
+<!--            <p class="card-text"> Room size :40,1 m2</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#form-update"-->
+<!--                    style="margin-right: 1rem">-->
+<!--              Edit-->
+<!--            </button>-->
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                                                     data-bs-target="#exampleModal">-->
+<!--            Delete-->
+<!--          </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="card h-100" style="width: 90%;margin: auto">-->
+<!--      <img src="/assets/img/fu3.jpg" class="card-img-top" alt="...">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title" style="margin-bottom: 0">OCEAN DELUXE</h5>-->
+<!--            <p class="card-text"> Room size :43,1 m2</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#form-update"-->
+<!--                    style="margin-right: 1rem">-->
+<!--              Edit-->
+<!--            </button>-->
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                    data-bs-target="#exampleModal">-->
+<!--              Delete-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="card h-100" style="width: 90%;margin: auto">-->
+<!--      <img src="/assets/img/fu1.jpg" class="card-img-top" alt="...">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title" style="margin-bottom: 0">OCEAN SUITE</h5>-->
+<!--            <p class="card-text"> Room size : 85,8 m2</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#form-update"-->
+<!--                    style="margin-right: 1rem">-->
+<!--              Edit-->
+<!--            </button>-->
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                    data-bs-target="#exampleModal">-->
+<!--              Delete-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100" style="width: 90%;margin: auto">
-      <img src="/assets/img/fu3.jpg" class="card-img-top" alt="...">
-      <div class="row">
-        <div class="col-6">
-          <div class="card-body">
-            <h5 class="card-title" style="margin-bottom: 0">OCEAN DELUXE</h5>
-            <p class="card-text"> Room size :43,1 m2</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card-body">
-            <button type="button" class="btn btn-danger" style="margin-right: 1rem"
-                    data-toggle="modal" data-target="#form-update">
-              Edit
-            </button>
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="card h-100" style="width: 90%;margin: auto">-->
+<!--      <img src="/assets/img/fu2.jpg" class="card-img-top" alt="...">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title" style="margin-bottom: 0">OCEAN STUDIO SUITE</h5>-->
+<!--            <p class="card-text"> Room size :40,1 m2</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#form-update"-->
+<!--                    style="margin-right: 1rem">-->
+<!--              Edit-->
+<!--            </button>-->
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                    data-bs-target="#exampleModal">-->
+<!--              Delete-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="card h-100" style="width: 90%;margin: auto">-->
+<!--      <img src="/assets/img/fu3.jpg" class="card-img-top" alt="...">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title" style="margin-bottom: 0">OCEAN DELUXE</h5>-->
+<!--            <p class="card-text"> Room size :43,1 m2</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-6">-->
+<!--          <div class="card-body">-->
+<!--            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#form-update"-->
+<!--                    style="margin-right: 1rem">-->
+<!--              Edit-->
+<!--            </button>-->
+
+<!--            <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                    data-bs-target="#exampleModal">-->
+<!--              Delete-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
 </div>
 
 <div class="row bg-info" style="height: 3rem">
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Create
-  </button>
+<!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
+<!--    Create-->
+<!--  </button>-->
 </div>
 
 
@@ -272,130 +272,90 @@
   </div>
 </div>
 
+
 <!--update Modal-->
-<!--<div class="modal" id="form-update">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="p-3 bg-modal">-->
-<!--        <h4 style="text-align: center">Chỉnh sửa dịch vụ</h4>-->
-<!--        <div class="form-group">-->
-<!--          <input class="form-control" type="hidden" id="serviceId">-->
-<!--          <div class="form-group">-->
-<!--            <label>Loại dịch vụ</label>-->
-<!--            <select class="form-control w-100" id="serviceType" onchange="formUpdate()">-->
-<!--              <option value="1">Villa</option>-->
-<!--              <option value="2">House</option>-->
-<!--              <option value="3">Room</option>-->
-<!--            </select>-->
-<!--          </div>-->
+<div class="modal" id="form-update">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="p-3 bg-modal">
+        <h4 style="text-align: center">Chỉnh sửa dịch vụ</h4>
+        <div class="form-group">
+          <input class="form-control" type="hidden" id="serviceId">
+          <div class="form-group">
+            <label>Loại dịch vụ</label>
+            <select class="form-control w-100" id="serviceType" onchange="formUpdate()">
+              <option value="1">Villa</option>
+              <option value="2">House</option>
+              <option value="3">Room</option>
+            </select>
+          </div>
 
-<!--          <div class="form-group">-->
-<!--            <label>Mã dịch vụ</label>-->
-<!--            <input class="form-control" type="text" id="serviceCode">-->
-<!--          </div>-->
+          <div class="form-group">
+            <label>Mã dịch vụ</label>
+            <input class="form-control" type="text" id="serviceCode">
+          </div>
 
-<!--          <div class="form-group">-->
-<!--            <label>Tên dịch vụ</label>-->
-<!--            <input class="form-control" type="text" id="serviceName">-->
-<!--          </div>-->
+          <div class="form-group">
+            <label>Tên dịch vụ</label>
+            <input class="form-control" type="text" id="serviceName">
+          </div>
 
-<!--          <div class="form-group">-->
-<!--            <label>Diện tích sử dụng</label>-->
-<!--            <input class="form-control" type="text" id="serviceArea">-->
-<!--          </div>-->
+          <div class="form-group">
+            <label>Diện tích sử dụng</label>
+            <input class="form-control" type="text" id="serviceArea">
+          </div>
 
-<!--          <div class="form-group">-->
-<!--            <label>Giá</label>-->
-<!--            <input class="form-control" type="text" id="serviceCost">-->
-<!--          </div>-->
+          <div class="form-group">
+            <label>Giá</label>
+            <input class="form-control" type="text" id="serviceCost">
+          </div>
 
-<!--          <div class="form-group">-->
-<!--            <label>Số người tối đa</label>-->
-<!--            <input class="form-control" type="text" id="serviceMaxPeople">-->
-<!--          </div>-->
+          <div class="form-group">
+            <label>Số người tối đa</label>
+            <input class="form-control" type="text" id="serviceMaxPeople">
+          </div>
 
-<!--          <div class="form-group" id="standardRoom">-->
-<!--            <label>Tiêu chuẩn phòng</label>-->
-<!--            <input class="form-control" type="text">-->
-<!--          </div>-->
+          <div class="form-group" id="standardRoom">
+            <label>Tiêu chuẩn phòng</label>
+            <input class="form-control" type="text">
+          </div>
 
-<!--          <div class="form-group" id="descriptionOtherConvenience">-->
-<!--            <label>Mô tả tiện nghi khác</label>-->
-<!--            <input class="form-control" type="text">-->
-<!--          </div>-->
+          <div class="form-group" id="descriptionOtherConvenience">
+            <label>Mô tả tiện nghi khác</label>
+            <input class="form-control" type="text">
+          </div>
 
-<!--          <div class="form-group" id="poolArea">-->
-<!--            <label>Diện tích hồ bơi</label>-->
-<!--            <input class="form-control" type="text">-->
-<!--          </div>-->
+          <div class="form-group" id="poolArea">
+            <label>Diện tích hồ bơi</label>
+            <input class="form-control" type="text">
+          </div>
 
-<!--          <div class="form-group" id="numberOfFloors">-->
-<!--            <label>Số tầng</label>-->
-<!--            <input class="form-control" type="text">-->
-<!--          </div>-->
+          <div class="form-group" id="numberOfFloors">
+            <label>Số tầng</label>
+            <input class="form-control" type="text">
+          </div>
 
-<!--          <div class="form-group">-->
-<!--            <label>Kiểu thuê</label>-->
-<!--            <select class="form-control w-100" id="rentType">-->
-<!--              <option value="1">Thuê theo năm</option>-->
-<!--              <option value="2">Thuê theo tháng</option>-->
-<!--              <option value="3">Thuê theo ngày</option>-->
-<!--              <option value="4">Thuê theo giờ</option>-->
-<!--            </select>-->
-<!--          </div>-->
-<!--          <button class="btn btn-dark" type="submit">Update</button>-->
-<!--          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>-->
+          <div class="form-group">
+            <label>Kiểu thuê</label>
+            <select class="form-control w-100" id="rentType">
+              <option value="1">Thuê theo năm</option>
+              <option value="2">Thuê theo tháng</option>
+              <option value="3">Thuê theo ngày</option>
+              <option value="4">Thuê theo giờ</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Update</button>
+          </div>
 
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 
-<script>
-  function formCreate() {
-    var id = document.getElementById("add-serviceType").value;
 
-    if (id === '1') { // Villa
-      document.getElementById("add-standardRoom").style.display = "block";
-      document.getElementById("add-descriptionOtherConvenience").style.display = "block";
-      document.getElementById("add-poolArea").style.display = "block";
-      document.getElementById("add-numberOfFloors").style.display = "block";
-    } else if (id === '2') { // House
-      document.getElementById("add-standardRoom").style.display = "block";
-      document.getElementById("add-descriptionOtherConvenience").style.display = "block";
-      document.getElementById("add-poolArea").style.display = "none";
-      document.getElementById("add-numberOfFloors").style.display = "block";
-    } else { // Room
-      document.getElementById("add-standardRoom").style.display = "none";
-      document.getElementById("add-descriptionOtherConvenience").style.display = "none";
-      document.getElementById("add-poolArea").style.display = "none";
-      document.getElementById("add-numberOfFloors").style.display = "none";
-    }
-  }
-
-  function formUpdate() {
-    var id = document.getElementById("serviceType").value;
-
-    if (id === '1') { // Villa
-      document.getElementById("standardRoom").style.display = "block";
-      document.getElementById("descriptionOtherConvenience").style.display = "block";
-      document.getElementById("poolArea").style.display = "block";
-      document.getElementById("numberOfFloors").style.display = "block";
-    } else if (id === '2') { // House
-      document.getElementById("standardRoom").style.display = "block";
-      document.getElementById("descriptionOtherConvenience").style.display = "block";
-      document.getElementById("poolArea").style.display = "none";
-      document.getElementById("numberOfFloors").style.display = "block";
-    } else { // Room
-      document.getElementById("standardRoom").style.display = "none";
-      document.getElementById("descriptionOtherConvenience").style.display = "none";
-      document.getElementById("poolArea").style.display = "none";
-      document.getElementById("numberOfFloors").style.display = "none";
-    }
-  }
-
-</script>
 

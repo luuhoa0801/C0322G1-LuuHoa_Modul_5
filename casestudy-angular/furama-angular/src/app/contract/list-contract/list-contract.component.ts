@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Contract} from "../model/contract";
 
 @Component({
   selector: 'app-list-contract',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListContractComponent implements OnInit {
 
-  constructor() { }
+  contract : Contract[] =[];
+
+  constructor() {
+    this.contract.push({stt:1,startDate:"11-01-2022",endDate:"12-01-2022",amount:1,employee:"Nguyễn Văn Một",
+      customer:"Văn Thị Bê",facility:"Villa"});
+    this.contract.push({stt:2,startDate:"13-04-2022",endDate:"15-04-2022",amount:2,employee:"Lưu Hòa",
+      customer:"Đinh Văn Tiền",facility:"House"});
+    this.contract.push({stt:3,startDate:"11-06-2022",endDate:"12-07-2022",amount:3,employee:"Nguyễn Văn A",
+      customer:"Nguyễn Văn C",facility:"Room"});
+  }
 
   ngOnInit(): void {
   }
