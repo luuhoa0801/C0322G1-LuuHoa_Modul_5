@@ -10,34 +10,31 @@ export class CalculatorComponent implements OnInit {
   constructor() {
   }
 
-  number1: number;
+  number1 = 0;
 
-  number2: number;
+  number2 = 0;
 
-  result: number;
+  result = 0;
 
   err = '';
 
   ngOnInit(): void {
   }
 
-  addition() {
-    this.result = Number(this.number1) + Number(this.number2);
-  }
-
-  subtraction() {
-    this.result = Number(this.number1) - Number(this.number2);
-  }
-
-  multiplication() {
-    this.result = Number(this.number1) * Number(this.number2);
-  }
-
-  division() {
-    if (this.number2 === 0) {
-      this.err = 'Số 0 không thể chia được';
+  calculator(item) {
+    if (item === '+') {
+      this.result = this.number1 + this.number2;
+    } else if (item === '-') {
+      this.result = this.number1 - this.number2;
+    } else if (item === '*') {
+      this.result = this.number1 * this.number2;
     } else {
-      this.result = Number(this.number1) / Number(this.number2);
+      if (this.number2 === 0) {
+        this.err = 'Khong the chia cho 0';
+      } else {
+        this.result = this.number1 / this.number2;
+      }
     }
   }
+
 }
