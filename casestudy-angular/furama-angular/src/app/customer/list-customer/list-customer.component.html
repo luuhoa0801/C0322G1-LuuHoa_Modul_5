@@ -1,109 +1,104 @@
-<div class="row" style="margin-top: 1rem">
-
-  <div class="col-6">
-    <div class="row fs-2" style="margin-left: 53rem">
-      <p style="font-weight: 800">Customer</p>
-    </div>
-  </div>
-  <div class="col-2"></div>
-
-<!--  <div class="col-3">-->
-<!--    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2.5rem">-->
-<!--      <form class="d-flex">-->
-<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--      </form>-->
-<!--    </nav>-->
-<!--  </div>-->
-  <div class="col-3" >
-    <nav class="nav navbar-expand ">
-        <input type="search" class="form-control">
-        <button class="btn btn-primary" type="submit">search </button>
-    </nav>
-  </div>
-
-</div>
-
-
-
-<table id="tableCustomer" class="table table-success table-striped"
-       border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
-  <thead>
-  <tr>
-    <th>No.</th>
-    <th>Name</th>
-    <th>BirthDay</th>
-    <th>Gender</th>
-    <th>IdCard</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Address</th>
-    <th>CustomerType</th>
-    <th>Manipulation</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let temp of customer" >
-    <td >{{temp.id}}</td>
-    <td >{{temp.name}}</td>
-    <td >{{temp.birthday}}</td>
-    <td *ngIf="temp.gender==true">Nam</td>
-    <td  *ngIf="temp.gender==false">Nữ</td>
-    <td >{{temp.idCard}}</td>
-    <td >{{temp.phone}}</td>
-    <td >{{temp.email}}</td>
-    <td >{{temp.address}}</td>
-    <td >{{temp.customerType.name}}</td>
-    <td>
-      <button type="button" class="btn btn-primary">
-        <a  href="http://localhost:4200/update-customer"  style="color: white">Edit</a>
-      </button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px">
-        Delete
-      </button>
-    </td>
-  </tr>
-
-  </tbody>
-
-  <tr>
-    <th colspan="11">
-      <div class="w-100 footer">
+<div class="container">
+  <div class="row" style="margin-top: 1rem">
+    <div class="col-2">
+      <div class="w-100 footer" style="margin-left: 2rem;margin-top: 5px">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomer ">
           <a href="http://localhost:4200/create-customer" class="text-white"> Create</a>
         </button>
       </div>
-    </th>
-  </tr>
-</table>
-<div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
-  <button class="btn btn-light">Previous</button>
-  <button class="btn btn-light">1</button>
-  <button class="btn btn-light">2</button>
-  <button class="btn btn-light">3</button>
-  <button class="btn btn-light">4</button>
-  <button class="btn btn-light">Next</button>
-</div>
+    </div>
+    <div class="col-6">
+      <div class="row fs-2" style="margin-left: 20rem">
+        <p style="font-weight: 800">Customer</p>
+      </div>
+    </div>
+    <!--  <div class="col-2"></div>-->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title " style="color: red" id="exampleModalLabel">Cảnh Báo !!! </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Bạn có chắc chắn muốn xóa ... hay không ???
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Delete</button>
+    <!--  <div class="col-3">-->
+    <!--    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2.5rem">-->
+    <!--      <form class="d-flex">-->
+    <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+    <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+    <!--      </form>-->
+    <!--    </nav>-->
+    <!--  </div>-->
+    <div class="col-3" style="margin-left: 5rem;margin-top: 5px">
+      <nav class="nav navbar-expand ">
+        <input type="search" class="form-control">
+        <button class="btn btn-primary" type="submit" style="margin-left: 5px">Search</button>
+      </nav>
+    </div>
+  </div>
+
+  <table id="tableCustomer" class="table table-success table-striped"
+         border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
+    <thead>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>BirthDay</th>
+      <th>Gender</th>
+      <th>IdCard</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>CustomerType</th>
+      <th>Manipulation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let temp of customer">
+      <td>{{temp.id}}</td>
+      <td>{{temp.name}}</td>
+      <td>{{temp.birthday}}</td>
+      <td *ngIf="temp.gender==true">Nam</td>
+      <td *ngIf="temp.gender==false">Nữ</td>
+      <td>{{temp.idCard}}</td>
+      <td>{{temp.phone}}</td>
+      <td>{{temp.email}}</td>
+      <td>{{temp.address}}</td>
+      <td>{{temp.customerType.name}}</td>
+      <td>
+        <button type="button" class="btn btn-primary">
+          <a href="http://localhost:4200/update-customer" style="color: white">Edit</a>
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="margin-left: 5px">
+          Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+  <div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
+    <button class="btn btn-light">Previous</button>
+    <button class="btn btn-light">1</button>
+    <button class="btn btn-light">2</button>
+    <button class="btn btn-light">3</button>
+    <button class="btn btn-light">4</button>
+    <button class="btn btn-light">Next</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " style="color: red" id="exampleModalLabel">Cảnh Báo !!! </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Bạn có chắc chắn muốn xóa ... hay không ???
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Delete</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <!--<script>-->
 <!--  var customerId;-->
 

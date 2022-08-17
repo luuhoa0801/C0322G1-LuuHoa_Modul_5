@@ -1,68 +1,55 @@
-<html lang="en">
-<html>
-<head>
-  <title>Thêm mới Customer</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <style>
-    .center-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .head-text {
-      font-size: 30px;
-      font-weight: bold;
-      height: 10%;
-    }
-    .footer{
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-  </style>
-</head>
 
-<body class="bg-dark">
-
-<div class="container">
+<div class="container" style="width: 50rem;margin: auto">
+  <div class="row">
   <div class="bg-white">
     <div class="h1 center-box "> Thêm mới Customer </div>
-<!--    <form class="p-3">-->
-      <div class="form-group">
+    <form class="p-3" [formGroup]="customerForm" >
+      <div class="form-group" style="margin-bottom: 1rem">
         <label >Nhập tên:</label>
-        <input type="text" class="form-control" placeholder="Enter name" name="name" >
+        <input type="text" class="form-control" placeholder="Enter name"  formControlName="name">
+          <p style="color: red" *ngIf="!name.valid && (name.dirty ||name.touched)"> Không để trống hoặc phải đúng định dạng</p>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 1rem">
         <label>Ngày sinh:</label>
         <input type="date" class="form-control" placeholder="Enter birthday" name="birthday" >
       </div>
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 1rem">
         <label>Giới tính:</label>
-        <input type="text" class="form-control" placeholder="Enter phone" name="gender" >
+        <select  class="form-control custom-select bg-light" name="gender" >
+          <option value="1">Nam</option>
+          <option value="2">Nữ</option>
+        </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 1rem">
         <label>Chứng minh:</label>
-        <input type="text" class="form-control" placeholder="Enter CMND" name="id_card" >
+        <input type="text" class="form-control" placeholder="Enter CMND" formControlName="idCard" >
+        <p style="color: red" *ngIf="!idCard.valid && (idCard.dirty ||idCard.touched)"> Không để trống hoặc phải 9 số</p>
       </div>
 
-      <div class="form-group">
-        <label>Số phone:</label>
-        <input type="text" class="form-control" placeholder="Enter phone" name="phone" >
+      <div class="form-group" style="margin-bottom: 1rem">
+        <label>Số điện thoại:</label>
+        <input type="text" class="form-control" placeholder="Enter phone" name="phone" formControlName="phone">
+        <p style="color: red" *ngIf="!phone.valid && (phone.dirty ||phone.touched)"> Không để trống,10 số hoặc 090...</p>
+
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 1rem">
         <label>Email:</label>
-        <input type="email" class="form-control" placeholder="Enter email" name="email" >
+        <input type="email" class="form-control" placeholder="Enter email" name="email" formControlName="email">
+        <p style="color: red" *ngIf="!email.valid && (email.dirty ||email.touched)"> Đúng định dạng email</p>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 1rem">
         <label>Địa chỉ:</label>
-        <input type="text" class="form-control" placeholder="Enter địa chỉ" name="address" >
+        <input type="text" class="form-control" placeholder="Enter địa chỉ" name="address" formControlName="address" >
+        <p style="color: red" *ngIf="!address.valid && (address.dirty ||address.touched)"> Không để trống .</p>
+
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 1rem">
+        <label> Kiểu khách hàng : </label>
         <select name="customerType" class="form-control custom-select bg-light" id="customerType">
           <option value="1">Diamond</option>
           <option value="2">Platinium</option>
@@ -70,11 +57,11 @@
           <option value="4">Silver</option>
         </select>
       </div>
-
-      <button type="submit" class="btn btn-primary">Thêm mới</button>
-<!--    </form>-->
+    <div style="margin-bottom: 1rem;margin-top: 5px">
+      <button [routerLink]="['/customer']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
+      <button type="submit" class="btn btn-danger" style="margin-left: 5px">Thêm mới</button>
+    </div>
+    </form>
+  </div>
   </div>
 </div>
-</body>
-
-</html>

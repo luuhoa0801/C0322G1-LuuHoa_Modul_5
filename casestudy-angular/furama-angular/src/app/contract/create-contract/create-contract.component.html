@@ -1,35 +1,8 @@
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>Thêm mới Hợp đồng</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-  <style>
-    .center-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .head-text {
-      font-size: 30px;
-      font-weight: bold;
-      height: 10%;
-    }
-
-    .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-  </style>
-</head>
-
-<body class="bg-dark">
-<div class="container">
+<div class="container" style="width: 60%">
   <div class="bg-white">
-    <div class="h1 center-box "> Thêm mới Contract</div>
-<!--    <form  class="p-3" >-->
+    <div class="h1 center-box "> Thêm mới hợp đồng</div>
+<!--    <form  class="p-3"  [formGroup]="customerForm">-->
       <div class="form-group">
         <label>Nhập ngày bắt đầu:</label>
         <input type="date" class="form-control" placeholder="Enter name" >
@@ -44,19 +17,16 @@
       </div>
 
       <div class="form-group" style="margin-top: 1.5rem">
-        <select class="form-control custom-select bg-light" >
+        <label>Khách hàng</label>
+        <select class="form-control custom-select bg-light" style="margin-top: 7px">
           <option > Khách hàng
           </option>
         </select>
       </div>
+
       <div class="form-group" style="margin-top: 1.5rem">
-        <select class="form-control custom-select bg-light" >
-          <option > Nhân viên
-          </option>
-        </select>
-      </div>
-      <div class="form-group" style="margin-top: 1.5rem">
-        <select class="form-control custom-select bg-light" >
+        <label>Dịch vụ </label>
+        <select class="form-control custom-select bg-light" style="margin-top: 7px">
           <option value="1">Villa</option>
           <option value="1">House</option>
           <option value="1">Room</option>
@@ -69,12 +39,10 @@
       </div>
 
       <div class="form-group" style="margin-top: 1.5rem">
+        <button [routerLink]="['/contract']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
         <button type="submit" class="btn btn-primary" style="margin: 1.5rem 1rem">Thêm mới hợp đồng</button>
       </div>
 <!--    </form>-->
   </div>
 </div>
 
-</body>
-
-</html>

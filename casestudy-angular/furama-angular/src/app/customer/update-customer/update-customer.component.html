@@ -1,74 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<html >
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Customer Edit</title>
-  <style>
-    .center-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .head-text {
-      font-size: 30px;
-      font-weight: bold;
-      height: 10%;
-    }
-    .content {
-      height: 90%;
-    }
-    .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-  </style>
-</head>
 
-<body class="bg-dark">
-<div class="container">
+<div class="container" style="width: 50rem;margin: auto">
+  <div class="row">
   <div class="bg-white">
-    <div class="h1 center-box "> Update Customer</div>
-    <div>
+    <div class="h1 center-box "> Chỉnh sửa Customer</div>
+
+    <div style="margin-left: 2rem">
 <!--      <form  novalidate="novalidate" class="p-3">-->
         <input type="hidden" class="form-control" />
 
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Tên</label>
           <input type="text" class="form-control" />
-
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Ngày sinh</label>
           <input type="date" class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Giới tính</label>
           <select class="form-control" >
             <option value="0">Nam</option>
             <option value="1">Nữ</option>
           </select>
-          <!--                    <input type="text" class="form-control" th:field="*{gender}"/>-->
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Chứng minh</label>
           <input type="text" class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Số điện thoại</label>
           <input type="text" class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Email</label>
           <input type="text" class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>Địa chỉ</label>
           <input type="text" class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 7px">
           <label>CustomerType</label>
           <select class="form-control w-100" id="addCustomerType">
             <option value="1">Diamond</option>
@@ -77,16 +49,15 @@
             <option value="4">Silver</option>
           </select>
         </div>
-        <div class="form-group" style="margin-top: 1rem">
-          <input type="submit" class="btn btn-primary" value="Update"/>
+        <div class="form-group" style="margin-top: 1rem;margin-bottom: 1rem">
+          <input [routerLink]="['/customer']" type="submit" class="btn btn-primary" value="Back"/>
+          <input type="submit" class="btn btn-danger" style="margin-left: 5px" value="Update"/>
+
         </div>
 <!--      </form>-->
     </div>
 
   </div>
+  </div>
 </div>
-</body>
 
-
-
-</html>

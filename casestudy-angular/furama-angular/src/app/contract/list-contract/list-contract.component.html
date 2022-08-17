@@ -1,124 +1,112 @@
-<html lang="en">
-<html >
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Contract</title>
-
-</head>
-<body>
-
-<div class="row" style="margin-top: 1rem">
-  <div class="col-3"></div>
-  <div class="col-6">
-    <div class="row fs-2" style="margin-left: 23rem">
-      <p style="font-weight: 700"> List Contract</p>
-    </div>
-  </div>
-</div>
-
-<table id="tableContract" class="table table-success table-striped"
-       border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
-  <thead>
-  <tr>
-    <th>No.</th>
-    <th>Ngày bắt đầu</th>
-    <th>Ngày kết thúc</th>
-    <th>Số lượng</th>
-    <th>Nhân viên</th>
-    <th>Khách hàng</th>
-    <th>Dịch vụ</th>
-    <th>Các dịch vụ đi kèm</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let temp of contract">
-    <td >{{temp.stt}}</td>
-    <td >{{temp.startDate}}</td>
-    <td >{{temp.endDate}}</td>
-    <td >{{temp.amount}}</td>
-    <td >{{temp.employee}}</td>
-    <td > {{temp.customer}}</td>
-    <td > {{temp.facility}}</td>
-    <td>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        +
-      </button>
-      <a href="1" class="bg-primary text-white" style="margin-left: 1.5rem">Danh sách các dịch vụ đi kèm</a>
-    </td>
-  </tr>
-  </tbody>
-  <tr>
-    <th colspan="11">
-      <div class="w-100 footer">
-        <button type="button"  class="btn btn-primary"   >
+<div class="container">
+  <div class="row" style="margin-top: 1rem">
+    <div class="col-3">
+      <div style="margin-left: 1rem">
+        <button type="button" class="btn btn-primary">
           <a href="http://localhost:4200/create-contract"
              style="color:white"> Thêm mới</a>
         </button>
       </div>
-    </th>
-  </tr>
-</table>
-<div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
-  <button class="btn btn-light">Previous</button>
-  <button class="btn btn-light">1</button>
-  <button class="btn btn-light">2</button>
-  <button class="btn btn-light">3</button>
-  <button class="btn btn-light">4</button>
-  <button class="btn btn-light">Next</button>
-</div>
-
-<!-- Modal + -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tạo mới hợp đồng chi tiết</h5>
-
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label >Ngày bắt đầu:</label>
-          <input type="date" class="form-control" id="1">
-        </div>
-        <div class="form-group" style="margin-top: 1.5rem">
-          <label>Ngày kết thúc:</label>
-          <input type="date" class="form-control"  id="2" >
-        </div>
-        <div class="form-group" style="margin-top: 1.5rem">
-          <label>Số tiền gửi:</label>
-          <input type="text" class="form-control"  id="3" >
-        </div>
-        <div class="form-group" style="margin-top: 1.5rem">
-          <label>Tổng tiền:</label>
-          <input type="text" class="form-control"  id="4" >
-        </div>
-        <div class="form-group" style="margin-top: 1.5rem">
-          <select name="customer" class="form-control custom-select bg-light" id="customer">
-            <option > Khách hàng thuê
-            </option>
-          </select>
-        </div>
-        <div class="form-group" style="margin-top: 1.5rem">
-          <select name="facility" class="form-control custom-select bg-light" id="facility">
-            <option value="1">Villa</option>
-            <option value="1">House</option>
-            <option value="1">Room</option>
-          </select>
-        </div>
-        <div class="form-group" style="margin-top: 1.5rem">
-          <label>Dịch vụ đi kèm:</label>
-          <button type="button" class=" btn btn-primary" style="margin-left: 1rem" >
-            +
-          </button>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
-        <button type="button" class="btn btn-primary">Tạo hợp đồng</button>
+    </div>
+    <div class="col-6" style="margin-left: 12rem">
+      <div class="row fs-2">
+        <p style="font-weight: 700"> List Contract</p>
       </div>
     </div>
+
+
+    <table id="tableContract" class="table table-success table-striped"
+           border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
+      <thead>
+      <tr>
+        <th>No.</th>
+        <th>Ngày bắt đầu</th>
+        <th>Ngày kết thúc</th>
+        <th>Số tiền cọc</th>
+        <th>Khách hàng</th>
+        <th>Dịch vụ</th>
+        <th>Các dịch vụ đi kèm</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let temp of contract">
+        <td>{{temp.stt}}</td>
+        <td>{{temp.startDate}}</td>
+        <td>{{temp.endDate}}</td>
+        <td>{{temp.deposits}}</td>
+        <td> {{temp.customer}}</td>
+        <td> {{temp.facility}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            +
+          </button>
+          <a href="1" class="bg-primary text-white" style="margin-left: 1.5rem">Danh sách các dịch vụ đi kèm</a>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+    <div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
+      <button class="btn btn-light">Previous</button>
+      <button class="btn btn-light">1</button>
+      <button class="btn btn-light">2</button>
+      <button class="btn btn-light">3</button>
+      <button class="btn btn-light">4</button>
+      <button class="btn btn-light">Next</button>
+    </div>
+
+    <!-- Modal + -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tạo mới hợp đồng chi tiết</h5>
+
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Ngày bắt đầu:</label>
+              <input type="date" class="form-control" id="1">
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+              <label>Ngày kết thúc:</label>
+              <input type="date" class="form-control" id="2">
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+              <label>Số tiền gửi:</label>
+              <input type="text" class="form-control" id="3">
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+              <label>Tổng tiền:</label>
+              <input type="text" class="form-control" id="4">
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+              <select name="customer" class="form-control custom-select bg-light" id="customer">
+                <option> Khách hàng thuê
+                </option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+              <select name="facility" class="form-control custom-select bg-light" id="facility">
+                <option value="1">Villa</option>
+                <option value="1">House</option>
+                <option value="1">Room</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-top: 1.5rem">
+              <label>Dịch vụ đi kèm:</label>
+              <button type="button" class=" btn btn-primary" style="margin-left: 1rem">
+                +
+              </button>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+            <button type="button" class="btn btn-primary">Tạo hợp đồng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
-</body>
-</html>

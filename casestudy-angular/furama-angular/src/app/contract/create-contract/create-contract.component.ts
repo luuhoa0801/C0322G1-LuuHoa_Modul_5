@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import validate = WebAssembly.validate;
 
 @Component({
   selector: 'app-create-contract',
@@ -11,5 +13,6 @@ export class CreateContractComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

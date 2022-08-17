@@ -1,0 +1,18 @@
+
+.center-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.head-text {
+  font-size: 30px;
+  font-weight: bold;
+  height: 10%;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

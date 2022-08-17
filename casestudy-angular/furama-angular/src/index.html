@@ -9,50 +9,50 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script>
+    function formCreate() {
+      var id = document.getElementById("add-serviceType").value;
+
+      if (id === '1') { // Villa
+        document.getElementById("add-standardRoom").style.display = "block";
+        document.getElementById("add-descriptionOtherConvenience").style.display = "block";
+        document.getElementById("add-poolArea").style.display = "block";
+        document.getElementById("add-numberOfFloors").style.display = "block";
+      } else if (id === '2') { // House
+        document.getElementById("add-standardRoom").style.display = "block";
+        document.getElementById("add-descriptionOtherConvenience").style.display = "block";
+        document.getElementById("add-poolArea").style.display = "none";
+        document.getElementById("add-numberOfFloors").style.display = "block";
+      } else { // Room
+        document.getElementById("add-standardRoom").style.display = "none";
+        document.getElementById("add-descriptionOtherConvenience").style.display = "none";
+        document.getElementById("add-poolArea").style.display = "none";
+        document.getElementById("add-numberOfFloors").style.display = "none";
+      }
+    }
+
+    function formUpdate() {
+      var id = document.getElementById("serviceType").value;
+
+      if (id === '1') { // Villa
+        document.getElementById("standardRoom").style.display = "block";
+        document.getElementById("descriptionOtherConvenience").style.display = "block";
+        document.getElementById("poolArea").style.display = "block";
+        document.getElementById("numberOfFloors").style.display = "block";
+      } else if (id === '2') { // House
+        document.getElementById("standardRoom").style.display = "block";
+        document.getElementById("descriptionOtherConvenience").style.display = "block";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloors").style.display = "block";
+      } else { // Room
+        document.getElementById("standardRoom").style.display = "none";
+        document.getElementById("descriptionOtherConvenience").style.display = "none";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloors").style.display = "none";
+      }
+    }
+
+  </script>
 </body>
-
-<script>
-  function formCreate() {
-    var id = document.getElementById("add-serviceType").value;
-
-    if (id === '1') { // Villa
-      document.getElementById("add-standardRoom").style.display = "block";
-      document.getElementById("add-descriptionOtherConvenience").style.display = "block";
-      document.getElementById("add-poolArea").style.display = "block";
-      document.getElementById("add-numberOfFloors").style.display = "block";
-    } else if (id === '2') { // House
-      document.getElementById("add-standardRoom").style.display = "block";
-      document.getElementById("add-descriptionOtherConvenience").style.display = "block";
-      document.getElementById("add-poolArea").style.display = "none";
-      document.getElementById("add-numberOfFloors").style.display = "block";
-    } else { // Room
-      document.getElementById("add-standardRoom").style.display = "none";
-      document.getElementById("add-descriptionOtherConvenience").style.display = "none";
-      document.getElementById("add-poolArea").style.display = "none";
-      document.getElementById("add-numberOfFloors").style.display = "none";
-    }
-  }
-
-  function formUpdate() {
-    var id = document.getElementById("serviceType").value;
-
-    if (id === '1') { // Villa
-      document.getElementById("standardRoom").style.display = "block";
-      document.getElementById("descriptionOtherConvenience").style.display = "block";
-      document.getElementById("poolArea").style.display = "block";
-      document.getElementById("numberOfFloors").style.display = "block";
-    } else if (id === '2') { // House
-      document.getElementById("standardRoom").style.display = "block";
-      document.getElementById("descriptionOtherConvenience").style.display = "block";
-      document.getElementById("poolArea").style.display = "none";
-      document.getElementById("numberOfFloors").style.display = "block";
-    } else { // Room
-      document.getElementById("standardRoom").style.display = "none";
-      document.getElementById("descriptionOtherConvenience").style.display = "none";
-      document.getElementById("poolArea").style.display = "none";
-      document.getElementById("numberOfFloors").style.display = "none";
-    }
-  }
-
-</script>
 </html>

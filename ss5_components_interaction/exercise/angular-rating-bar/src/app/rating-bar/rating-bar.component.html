@@ -1,0 +1,21 @@
+<h1>Rating Bar</h1>
+<div *ngIf="active">
+  {{ value }}
+</div>
+
+<div *ngFor="let item of ratingUnits; index as i">
+  <span *ngIf="i + 1 <= value">
+    <button style="display: flex; float: left; margin-left: 20px; background-color: salmon;"
+            (click)="changValue(i + 1)">
+      {{i + 1}}
+    </button>
+  </span>
+
+  <span *ngIf="i + 1 > value">
+    <button style="display: flex; float: left; margin-left: 20px; background-color: lightgray"
+            (click)="changValue(i + 1)">
+    {{i + 1}}
+      </button>
+  </span>
+
+</div>
