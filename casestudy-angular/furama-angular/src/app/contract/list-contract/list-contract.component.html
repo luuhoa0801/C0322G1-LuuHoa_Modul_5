@@ -29,13 +29,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let temp of contract">
+      <tr *ngFor="let temp of contractList">
         <td>{{temp.stt}}</td>
         <td>{{temp.startDate}}</td>
         <td>{{temp.endDate}}</td>
         <td>{{temp.deposits}}</td>
-        <td> {{temp.customer}}</td>
-        <td> {{temp.facility}}</td>
+        <td> {{temp.customer.name}}</td>
+        <td> {{temp.facility.name}}</td>
         <td>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             +
@@ -108,5 +108,6 @@
         </div>
       </div>
     </div>
-
   </div>
+</div>
+

@@ -1,63 +1,102 @@
 
 <div class="container" style="width: 50rem;margin: auto">
   <div class="row">
-  <div class="bg-white">
-    <div class="h1 center-box "> Chỉnh sửa Customer</div>
-
-    <div style="margin-left: 2rem">
-<!--      <form  novalidate="novalidate" class="p-3">-->
-        <input type="hidden" class="form-control" />
-
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Tên</label>
-          <input type="text" class="form-control" />
+    <div class="bg-white">
+      <div class="h1 center-box "> Chỉnh sửa Customer </div>
+      <form class="p-3" [formGroup]="customerForm" (ngSubmit)="updateCustomer()">
+        <input type="text" hidden formControlName="id">
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label >Nhập tên:</label>
+          <input type="text" class="form-control" placeholder="Enter name"  formControlName="name">
+          <p style="color: red"
+             *ngIf="customerForm.controls.name.hasError('required')&& (customerForm.controls.name.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="customerForm.controls.name.hasError('pattern')&& (customerForm.controls.name.touched)">
+            Phải đúng định dạng
+          </p>
         </div>
 
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Ngày sinh</label>
-          <input type="date" class="form-control" />
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Ngày sinh:</label>
+          <input type="text" class="form-control" placeholder="Enter birthday" name="birthday" formControlName="birthday">
         </div>
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Giới tính</label>
-          <select class="form-control" >
-            <option value="0">Nam</option>
-            <option value="1">Nữ</option>
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Giới tính:</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="gender" [value]="true">
+            <label class="form-check-label">
+              Nam
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="gender" [value]="false">
+            <label class="form-check-label">
+              Nữ
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Chứng minh:</label>
+          <input type="text" class="form-control" placeholder="Enter CMND" formControlName="idCard" >
+          <p style="color: red"
+             *ngIf="customerForm.controls.idCard.hasError('required')&& (customerForm.controls.idCard.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="customerForm.controls.idCard.hasError('pattern')&& (customerForm.controls.idCard.touched)">
+            Phải đúng định dạng 9 số
+          </p>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Số điện thoại:</label>
+          <input type="text" class="form-control" placeholder="Enter phone" name="phone" formControlName="phone">
+          <p style="color: red"
+             *ngIf="customerForm.controls.phone.hasError('required')&& (customerForm.controls.phone.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="customerForm.controls.phone.hasError('pattern')&& (customerForm.controls.phone.touched)">
+            Phải đúng định dạng: 090 và 7 số nữa
+          </p>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Email:</label>
+          <input type="email" class="form-control" placeholder="Enter email" name="email" formControlName="email">
+          <p style="color: red"
+             *ngIf="customerForm.controls.email.hasError('required')&& (customerForm.controls.email.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="customerForm.controls.email.hasError('pattern')&& (customerForm.controls.email.touched)">
+            Phải đúng định dạng email
+          </p>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Địa chỉ:</label>
+          <input type="text" class="form-control" placeholder="Enter địa chỉ" name="address" formControlName="address" >
+          <p style="color: red"
+             *ngIf="customerForm.controls.address.hasError('required')&& (customerForm.controls.address.touched)">
+            Không để trống
+          </p>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label> Kiểu khách hàng : </label>
+          <select name="customerType" class="form-control custom-select bg-light" id="customerType" formControlName="customerType">
+            <option *ngFor="let item of customerTypeList" [ngValue]="item.id">{{item.name}}</option>
           </select>
         </div>
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Chứng minh</label>
-          <input type="text" class="form-control" />
+        <div style="margin-bottom: 1rem;margin-top: 5px">
+          <button [routerLink]="['/customer']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
+          <button class="btn btn-danger" style="margin-left: 5px">mới</button>
         </div>
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Số điện thoại</label>
-          <input type="text" class="form-control" />
-        </div>
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Email</label>
-          <input type="text" class="form-control" />
-        </div>
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>Địa chỉ</label>
-          <input type="text" class="form-control" />
-        </div>
-        <div class="form-group" style="margin-bottom: 7px">
-          <label>CustomerType</label>
-          <select class="form-control w-100" id="addCustomerType">
-            <option value="1">Diamond</option>
-            <option value="2">Platinium</option>
-            <option value="3">Gold</option>
-            <option value="4">Silver</option>
-          </select>
-        </div>
-        <div class="form-group" style="margin-top: 1rem;margin-bottom: 1rem">
-          <input [routerLink]="['/customer']" type="submit" class="btn btn-primary" value="Back"/>
-          <input type="submit" class="btn btn-danger" style="margin-left: 5px" value="Update"/>
-
-        </div>
-<!--      </form>-->
+      </form>
     </div>
-
-  </div>
   </div>
 </div>
-

@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'customer', component: ListCustomerComponent},
   { path: 'facility', component: ListFacilityComponent},
   { path: 'contract', component: ListContractComponent},
-  { path: 'update-customer', component: UpdateCustomerComponent},
+  { path: 'update-customer/:id', component: UpdateCustomerComponent},
   { path: 'create-customer', component: CreateCustomerComponent},
   { path: 'create-contract', component: CreateContractComponent},
 

@@ -38,7 +38,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost:4200/home"
+    <a class="navbar-brand" [routerLink]="['/home']"
        style="color: white" >   Home   </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
             Customer
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="http://localhost:4200/customer">List Customer
+            <li><a class="dropdown-item" [routerLink]="['/customer']" >List Customer
             </a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -62,7 +62,7 @@
             Facility
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="http://localhost:4200/facility">
+            <li><a class="dropdown-item" [routerLink]="['/facility']" >
               List Facility
             </a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -75,7 +75,7 @@
             Contract
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="http://localhost:4200/contract">
+            <li><a class="dropdown-item"  [routerLink]="['/contract']" >
               List Contract
             </a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>

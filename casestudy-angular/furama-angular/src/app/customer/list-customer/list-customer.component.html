@@ -3,7 +3,7 @@
     <div class="col-2">
       <div class="w-100 footer" style="margin-left: 2rem;margin-top: 5px">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomer ">
-          <a href="http://localhost:4200/create-customer" class="text-white"> Create</a>
+          <a [routerLink]="['/create-customer']"  class="text-white"> Create</a>
         </button>
       </div>
     </div>
@@ -47,7 +47,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let temp of customer">
+    <tr *ngFor="let temp of customerList">
       <td>{{temp.id}}</td>
       <td>{{temp.name}}</td>
       <td>{{temp.birthday}}</td>
@@ -60,9 +60,9 @@
       <td>{{temp.customerType.name}}</td>
       <td>
         <button type="button" class="btn btn-primary">
-          <a href="http://localhost:4200/update-customer" style="color: white">Edit</a>
+          <a [routerLink]="['../update-customer', temp.id]" style="color: white">Edit</a>
         </button>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="valueDelete(temp.id, temp.name)"
                 style="margin-left: 5px">
           Delete
         </button>
@@ -89,27 +89,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Bạn có chắc chắn muốn xóa ... hay không ???
+          Bạn có chắc chắn muốn xóa {{name}} hay không ???
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Delete</button>
+          <button type="button" class="btn btn-primary" (click)="delete()" data-bs-dismiss="modal">Delete</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!--<script>-->
-<!--  var customerId;-->
 
-<!--  function customerIndex(index, name) {-->
-<!--    customerId = index;-->
-<!--    document.getElementById("name").innerHTML = "bạn có muốn xóa không ? <br>" + name;-->
-<!--  };-->
-
-<!--  function customerIndex2() {-->
-<!--    link = "/customer/delete/" + customerId;-->
-<!--    window.location.href = link;-->
-<!--  };-->
-<!--</script>-->
 
