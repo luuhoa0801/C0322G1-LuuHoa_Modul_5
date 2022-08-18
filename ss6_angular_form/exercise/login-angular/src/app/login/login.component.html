@@ -1,1 +1,44 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" class="w-100 bg-white" novalidate>
+  <div class="w-100 ">
+    <div class="w-25 m-0 p-0 float-left">&nbsp;</div>
+    <div class=" w-50 content float-left p-0">
+      <div class="p-3">
+        <h4 style="text-align: center">Log in</h4>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" type="email" formControlName="email">
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="loginForm.controls.email.hasError('required')
+        && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+          Input email, pls!!!
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="loginForm.controls.email.hasError('email')
+        && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+          Wrong format!!!
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" type="password" formControlName="password">
+        </div>
+
+        <div class="mb-3 text-danger"
+             *ngIf="getPassword().invalid && (getPassword().dirty || getPassword().touched) && getPassword().errors.required">
+          Input password, pls!!!
+        </div>
+
+        <div class="mb-3 text-danger"
+             *ngIf="getPassword().invalid && (getPassword().dirty || getPassword().touched) && getPassword().errors.minlength">
+          Input >= 6 characters!!!
+        </div>
+
+        <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid">Add new
+        </button>
+      </div>
+    </div>
+    <div class="w-25 m-0 p-0 float-left">&nbsp;</div>
+  </div>
+</form>
