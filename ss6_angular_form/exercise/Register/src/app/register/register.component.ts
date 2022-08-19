@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.countryList);
 
     this.registerForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.pattern('^[\\w\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       country: new FormControl('', [Validators.required]),
       age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
       gender: new FormControl('', Validators.required),

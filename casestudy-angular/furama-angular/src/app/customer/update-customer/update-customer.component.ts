@@ -25,7 +25,7 @@ export class UpdateCustomerComponent implements OnInit {
     this.customerForm = new FormGroup({
       id: new FormControl(),
       name: new FormControl('', [Validators.required, Validators.pattern('^[A-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$')]),
-      birthday: new FormControl(),
+      birthday: new FormControl('',Validators.required),
       gender: new FormControl(true),
       idCard: new FormControl('', [Validators.required, Validators.pattern('^[1-9]{9}$')]),
       phone: new FormControl('',[Validators.required,Validators.pattern('^090[0-9]{7}$')]),

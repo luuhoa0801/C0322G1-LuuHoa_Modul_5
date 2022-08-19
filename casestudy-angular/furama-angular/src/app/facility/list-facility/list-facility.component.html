@@ -30,7 +30,7 @@
               </button>
             </div>
             <div class="col-6 card-body">
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" (click)="valueDelete(temp.id,temp.name)"
                       data-bs-target="#exampleModal" style="margin-left: 1rem"> Delete
               </button>
             </div>
@@ -58,179 +58,22 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Bạn có chắc chắn muốn xóa ... hay không ???
+          Bạn có chắc chắn muốn xóa {{name}} hay không ???
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Delete</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete()">Delete</button>
         </div>
       </div>
     </div>
   </div>
 
+<app-create-facility></app-create-facility>
   <!--Modal thêm mới-->
-  <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Create Facility</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <input class="form-control" type="hidden" id="add-serviceId">
-          <div class="form-group">
-            <label>Loại dịch vụ</label>
-            <select class="form-control w-100" id="add-serviceType" onchange="formCreate()">
-              <option value="1">Villa</option>
-              <option value="2">House</option>
-              <option value="3">Room</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Mã dịch vụ</label>
-            <input class="form-control" type="text" id="add-serviceCode">
-          </div>
 
-          <div class="form-group">
-            <label>Tên dịch vụ</label>
-            <input class="form-control" type="text" id="add-serviceName">
-          </div>
-
-          <div class="form-group">
-            <label>Diện tích sử dụng</label>
-            <input class="form-control" type="text" id="add-serviceArea">
-          </div>
-
-          <div class="form-group">
-            <label>Giá</label>
-            <input class="form-control" type="text" id="add-serviceCost">
-          </div>
-
-          <div class="form-group">
-            <label>Số người tối đa</label>
-            <input class="form-control" type="text" id="add-serviceMaxPeople">
-          </div>
-
-          <div class="form-group" id="add-standardRoom">
-            <label>Tiêu chuẩn phòng</label>
-            <input class="form-control" type="text">
-          </div>
-
-          <div class="form-group" id="add-descriptionOtherConvenience">
-            <label>Mô tả tiện nghi khác</label>
-            <input class="form-control" type="text">
-          </div>
-
-          <div class="form-group" id="add-poolArea">
-            <label>Diện tích hồ bơi</label>
-            <input class="form-control" type="text">
-          </div>
-
-          <div class="form-group" id="add-numberOfFloors">
-            <label>Số tầng</label>
-            <input class="form-control" type="text">
-          </div>
-
-          <div class="form-group">
-            <label>Kiểu thuê</label>
-            <select class="form-control w-100" id="add-rentType">
-              <option value="1">Thuê theo năm</option>
-              <option value="2">Thuê theo tháng</option>
-              <option value="3">Thuê theo ngày</option>
-              <option value="4">Thuê theo giờ</option>
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Create</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+<app-update-facility></app-update-facility>
   <!--update Modal-->
-  <div class="modal" id="form-update">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="p-3 bg-modal">
-          <h4 style="text-align: center">Chỉnh sửa dịch vụ</h4>
-          <div class="form-group">
-            <input class="form-control" type="hidden" id="serviceId">
-            <div class="form-group">
-              <label>Loại dịch vụ</label>
-              <select class="form-control w-100" id="serviceType" onchange="formUpdate()">
-                <option value="1">Villa</option>
-                <option value="2">House</option>
-                <option value="3">Room</option>
-              </select>
-            </div>
 
-            <div class="form-group">
-              <label>Mã dịch vụ</label>
-              <input class="form-control" type="text" id="serviceCode">
-            </div>
-
-            <div class="form-group">
-              <label>Tên dịch vụ</label>
-              <input class="form-control" type="text" id="serviceName">
-            </div>
-
-            <div class="form-group">
-              <label>Diện tích sử dụng</label>
-              <input class="form-control" type="text" id="serviceArea">
-            </div>
-
-            <div class="form-group">
-              <label>Giá</label>
-              <input class="form-control" type="text" id="serviceCost">
-            </div>
-
-            <div class="form-group">
-              <label>Số người tối đa</label>
-              <input class="form-control" type="text" id="serviceMaxPeople">
-            </div>
-
-            <div class="form-group" id="standardRoom">
-              <label>Tiêu chuẩn phòng</label>
-              <input class="form-control" type="text">
-            </div>
-
-            <div class="form-group" id="descriptionOtherConvenience">
-              <label>Mô tả tiện nghi khác</label>
-              <input class="form-control" type="text">
-            </div>
-
-            <div class="form-group" id="poolArea">
-              <label>Diện tích hồ bơi</label>
-              <input class="form-control" type="text">
-            </div>
-
-            <div class="form-group" id="numberOfFloors">
-              <label>Số tầng</label>
-              <input class="form-control" type="text">
-            </div>
-
-            <div class="form-group">
-              <label>Kiểu thuê</label>
-              <select class="form-control w-100" id="rentType">
-                <option value="1">Thuê theo năm</option>
-                <option value="2">Thuê theo tháng</option>
-                <option value="3">Thuê theo ngày</option>
-                <option value="4">Thuê theo giờ</option>
-              </select>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Update</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 

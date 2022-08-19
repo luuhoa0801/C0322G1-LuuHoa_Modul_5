@@ -29,6 +29,8 @@ const routes: Routes = [
   { path: 'update-customer/:id', component: UpdateCustomerComponent},
   { path: 'create-customer', component: CreateCustomerComponent},
   { path: 'create-contract', component: CreateContractComponent},
+  { path: 'create-facility', component: CreateFacilityComponent},
+  { path: 'update-facility', component: UpdateFacilityComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full'},
 
