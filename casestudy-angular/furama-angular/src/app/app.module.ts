@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'create-customer', component: CreateCustomerComponent},
   { path: 'create-contract', component: CreateContractComponent},
   { path: 'create-facility', component: CreateFacilityComponent},
-  { path: 'update-facility', component: UpdateFacilityComponent},
+  { path: 'update-facility/:id', component: UpdateFacilityComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full'},
 

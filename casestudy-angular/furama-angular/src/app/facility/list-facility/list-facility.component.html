@@ -25,13 +25,13 @@
           </div>
           <div class="col-6" >
             <div class="col-6 card-body">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form-update"
-                      style="margin-top: 1rem;margin-left: 1rem"> Edit
+              <button type="button" class="btn btn-primary">
+                <a [routerLink]="['../update-facility', temp.id]" style="color: white">Edit</a>
               </button>
             </div>
             <div class="col-6 card-body">
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" (click)="valueDelete(temp.id,temp.name)"
-                      data-bs-target="#exampleModal" style="margin-left: 1rem"> Delete
+                      data-bs-target="#exampleModal" > Delete
               </button>
             </div>
           </div>
@@ -71,8 +71,6 @@
 <app-create-facility></app-create-facility>
   <!--Modal thêm mới-->
 
-<app-update-facility></app-update-facility>
-  <!--update Modal-->
 
 </div>
 

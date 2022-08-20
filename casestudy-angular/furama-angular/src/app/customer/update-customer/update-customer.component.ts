@@ -33,8 +33,8 @@ export class UpdateCustomerComponent implements OnInit {
       address: new FormControl('',Validators.required),
       customerType: new FormControl(),
     })
-    this.activatedRoute.paramMap.subscribe((pramMap: ParamMap) => {
-      const id = +pramMap.get('id');
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = +paramMap.get('id');
       this.customer = this.customerService.getById(id);
       console.log(this.customer);
       this.customerForm.patchValue(this.customer);

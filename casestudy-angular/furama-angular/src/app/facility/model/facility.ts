@@ -15,5 +15,6 @@ export interface Facility {
   url?:string;
   rentType?:RentType;
   facilityType?: FacilityType
+
 }
 

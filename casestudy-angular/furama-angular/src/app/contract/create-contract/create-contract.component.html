@@ -2,35 +2,58 @@
 <div class="container" style="width: 60%">
   <div class="bg-white">
     <div class="h1 center-box "> Thêm mới hợp đồng</div>
-<!--    <form  class="p-3"  [formGroup]="contractForm" (ngSubmit)=createContract()">-->
+    <form  class="p-3"  [formGroup]="contractForm" (ngSubmit)=createContract()>
       <div class="form-group">
         <label>Nhập ngày bắt đầu:</label>
-        <input type="date" class="form-control" placeholder="Enter name" >
+        <input type="date" class="form-control" placeholder="Enter name"  formControlName="startDate">
+        <p style="color: red"
+           *ngIf="contractForm.controls.startDate.hasError('required')&& (contractForm.controls.startDate.touched)">
+          Không để trống
+        </p>
       </div>
       <div class="form-group" style="margin-top: 1.5rem">
         <label>Ngày kết thúc:</label>
-        <input type="date" class="form-control"  >
+        <input type="date" class="form-control" formControlName="endDate" >
+        <p style="color: red"
+           *ngIf="contractForm.controls.endDate.hasError('required')&& (contractForm.controls.endDate.touched)">
+          Không để trống
+        </p>
       </div>
+
       <div class="form-group" style="margin-top: 1.5rem">
-        <label>Tiền cọc :</label>s
-        <input type="text" class="form-control"  >
+        <label>Tiền cọc </label>
+        <input type="number" class="form-control" formControlName="deposits" >
+        <p style="color: red"
+           *ngIf="contractForm.controls.deposits.hasError('required')&& (contractForm.controls.deposits.touched)">
+          Không để trống
+        </p>
+        <p style="color: red"
+           *ngIf="contractForm.controls.deposits.hasError('min')&& (contractForm.controls.deposits.touched)">
+          Không âm
+        </p>
       </div>
 
       <div class="form-group" style="margin-top: 1.5rem">
         <label>Khách hàng</label>
-        <select class="form-control custom-select bg-light" style="margin-top: 7px">
-          <option > Khách hàng
-          </option>
+        <select name="customer" class="form-control custom-select bg-light"  formControlName="customer">
+          <option *ngFor="let item of customerList " [ngValue]="item.id">{{item.name}}</option>
         </select>
+        <p style="color: red"
+           *ngIf="contractForm.controls.customer.hasError('required')&& (contractForm.controls.customer.touched)">
+          Không để trống
+        </p>
       </div>
 
       <div class="form-group" style="margin-top: 1.5rem">
         <label>Dịch vụ </label>
-        <select class="form-control custom-select bg-light" style="margin-top: 7px">
-          <option value="1">Villa</option>
-          <option value="1">House</option>
-          <option value="1">Room</option>
+        <select name="facility" class="form-control custom-select bg-light"  formControlName="facility">
+          <option *ngFor="let item of facilityList " [ngValue]="item.id">{{item.name}}</option>
         </select>
+        <p style="color: red"
+           *ngIf="contractForm.controls.facility.hasError('required')&& (contractForm.controls.facility.touched)">
+          Không để trống
+        </p>
+
       </div>
 
       <div class="form-group" style="margin-top: 1.5rem">
@@ -40,9 +63,9 @@
 
       <div class="form-group" style="margin-top: 1.5rem">
         <button [routerLink]="['/contract']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
-        <button type="submit" class="btn btn-primary" style="margin: 1.5rem 1rem">Thêm mới hợp đồng</button>
+        <button  class="btn btn-primary" style="margin: 1.5rem 1rem">Thêm mới hợp đồng</button>
       </div>
-<!--    </form>-->
+    </form>
   </div>
 </div>
 

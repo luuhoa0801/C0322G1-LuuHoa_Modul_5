@@ -11,23 +11,22 @@ export class FacilityService {
 
   constructor(private rentTypeService: RentTypeService,
               private facilityTypeService: FacilityTypeService) {
-    this.facilityList.push({
-        id:1,
+    this.facilityList.push({id: 1,
         name: "OCEAN SUITE",
         area: 10,
         cost: 1000,
         maxPeople: 2,
-        rentType:rentTypeService.rentTypeList[0] ,
+        rentType: rentTypeService.rentTypeList[0],
         standardRoom: "vip",
         descriptionOtherConvenience: "không",
         poolArea: 50,
         numberOfFloors: 2,
         facilityFree: "không",
-        facilityType:facilityTypeService.facilityTypeList[0],
+        facilityType: facilityTypeService.facilityTypeList[0],
         url: "\\assets\\img\\fu1.jpg"
       },
       {
-        id:2,
+        id: 2,
         name: "OCEAN STUDIO SUITE",
         area: 80,
         cost: 2000,
@@ -38,11 +37,11 @@ export class FacilityService {
         poolArea: 50,
         numberOfFloors: 3,
         facilityFree: "không",
-        facilityType:facilityTypeService.facilityTypeList[1],
+        facilityType: facilityTypeService.facilityTypeList[1],
         url: "\\assets\\img\\fu2.jpg"
       },
       {
-        id:3,
+        id: 3,
         name: "OCEAN DELUXE",
         area: 30,
         cost: 3000,
@@ -53,39 +52,70 @@ export class FacilityService {
         poolArea: 40,
         numberOfFloors: 4,
         facilityFree: "không",
-        facilityType:facilityTypeService.facilityTypeList[2],
+        facilityType: facilityTypeService.facilityTypeList[2],
         url: "\\assets\\img\\fu3.jpg"
-      })
+      });
   }
 
   getAllFacility() {
     return this.facilityList;
     console.log(this.facilityList)
   }
-  saveFacility(facility){
+
+  saveFacility(facility) {
     facility.id = this.facilityList.length + 1;
-    if (facility.facilityType==1){
-      facility.facilityType =this.facilityTypeService.facilityTypeList[0];
-    }else if (facility.facilityType==2){
-      facility.facilityType =this.facilityTypeService.facilityTypeList[1];
-    }else if (facility.facilityType==3){
-      facility.facilityType =this.facilityTypeService.facilityTypeList[2];
+    if (facility.facilityType == 1) {
+      facility.facilityType = this.facilityTypeService.facilityTypeList[0];
+    } else if (facility.facilityType == 2) {
+      facility.facilityType = this.facilityTypeService.facilityTypeList[1];
+    } else if (facility.facilityType == 3) {
+      facility.facilityType = this.facilityTypeService.facilityTypeList[2];
     }
-    if (facility.rentType==1){
-      facility.rentType=this.rentTypeService.rentTypeList[0];
-    }else if (facility.rentType==2){
-      facility.rentType=this.rentTypeService.rentTypeList[1];
-    }else if (facility.rentType==3){
-      facility.rentType=this.rentTypeService.rentTypeList[2];
+    if (facility.rentType == 1) {
+      facility.rentType = this.rentTypeService.rentTypeList[0];
+    } else if (facility.rentType == 2) {
+      facility.rentType = this.rentTypeService.rentTypeList[1];
+    } else if (facility.rentType == 3) {
+      facility.rentType = this.rentTypeService.rentTypeList[2];
     }
     console.log(this.facilityTypeService.facilityTypeList)
     this.facilityList.push(facility);
   }
 
   delete(id: number) {
-    this.facilityList = this .facilityList.filter(facility => {
+    this.facilityList = this.facilityList.filter(facility => {
       return facility.id !== id;
     });
+  }
+
+  update(facility) {
+    if (facility.facilityType == 1) {
+      facility.facilityType = this.facilityTypeService.facilityTypeList[0];
+    } else if (facility.facilityType == 2) {
+      facility.facilityType = this.facilityTypeService.facilityTypeList[1];
+    } else if (facility.facilityType == 3) {
+      facility.facilityType = this.facilityTypeService.facilityTypeList[2];
+    }
+    if (facility.rentType == 1) {
+      facility.rentType = this.rentTypeService.rentTypeList[0];
+    } else if (facility.rentType == 2) {
+      facility.rentType = this.rentTypeService.rentTypeList[1];
+    } else if (facility.rentType == 3) {
+      facility.rentType = this.rentTypeService.rentTypeList[2];
+    }
+    for (let i = 0; i <this.facilityList.length ; i++) {
+      if (this.facilityList[i].id === facility.id){
+        this.facilityList[i] = facility;
+      }
+    }
+  }
+
+  getById(id: number) {
+    for (let  item of this.facilityList){
+      if (item.id==id){
+        return item;
+      }
+    }
   }
 }
 

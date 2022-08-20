@@ -34,17 +34,23 @@ export class ContractService {
   }
 
   saveContract(contract){
-    // contract.stt = this.contractList.length + 1;
-    // if (contract.customer==1){
-    //   contract.customer = this.customerService.customerList[0];
-    // }else if (contract.customer==2){
-    //   contract.customer = this.customerService.customerList[1];
-    // }else if (contract.customer==3){
-    //   contract.customer = this.customerService.customerList[2];
-    // }
-    // if (contract.facility==1){
-    //
-    // }
+    contract.stt = this.contractList.length + 1;
+    if (contract.customer==1){
+      contract.customer = this.customerService.customerList[0];
+    }else if (contract.customer==2){
+      contract.customer = this.customerService.customerList[1];
+    }else if (contract.customer==3){
+      contract.customer = this.customerService.customerList[2];
+    }
+    if (contract.facility==1){
+        contract.facility = this.facilityService.facilityList[0];
+    }else if (contract.facility==2){
+      contract.facility = this.facilityService.facilityList[1];
+    }else if (contract.facility==3){
+      contract.facility =  this.facilityService.facilityList[2];
+    }
+    this.contractList.push(contract);
   }
+
 
 }

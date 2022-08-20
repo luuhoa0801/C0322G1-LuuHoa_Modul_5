@@ -30,14 +30,14 @@ this.rentTypeList = this.rentTypeService.rentTypeList;
       area: new FormControl('',[Validators.required,Validators.min(1)]),
       cost: new FormControl('',[Validators.required,Validators.min(0)]),
       maxPeople: new FormControl('',[Validators.min(1)]),
-      standardRoom: new FormControl('',[Validators.required]),
-      descriptionOtherConvenience: new FormControl('',[Validators.required]),
-      poolArea: new FormControl('',[Validators.required,Validators.min(1)]),
-      numberOfFloors: new FormControl('',[Validators.required,Validators.min(0)]),
-      facilityFree: new FormControl('',[Validators.required]),
-      url: new FormControl('',[Validators.required]),
-      rentType: new FormControl(1,[Validators.required]),
-      facilityType: new FormControl('',[Validators.required]),
+      standardRoom: new FormControl('0',[Validators.required]),
+      descriptionOtherConvenience: new FormControl('0',[Validators.required]),
+      poolArea: new FormControl('0',[Validators.required,Validators.min(1)]),
+      numberOfFloors: new FormControl('0',[Validators.required,Validators.min(0)]),
+      facilityFree: new FormControl('0',[Validators.required]),
+      url: new FormControl('0',[Validators.required]),
+      rentType: new FormControl('1'),
+      facilityType: new FormControl('1'),
     });
 
   }
