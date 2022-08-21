@@ -46,7 +46,7 @@ this.rentTypeList = this.rentTypeService.rentTypeList;
   createFacility() {
     const facility = this.facilityForm.value;
     this.facilityService.saveFacility(facility);
-    this.router.navigateByUrl('/facility');
+    this.router.navigateByUrl('/list-facility');
     console.log(this.facilityService.facilityList)
   }
 }

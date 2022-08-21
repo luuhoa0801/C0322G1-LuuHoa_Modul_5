@@ -36,6 +36,6 @@ export class CreateCustomerComponent implements OnInit {
   createCustomer() {
     const customer = this.customerForm.value;
     this.customerService.save(customer);
-    this.router.navigateByUrl('/customer');
+    this.router.navigateByUrl('/list-customer');
   }
 }

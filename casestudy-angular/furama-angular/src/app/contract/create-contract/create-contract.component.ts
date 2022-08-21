@@ -40,6 +40,6 @@ export class CreateContractComponent implements OnInit {
     const contract = this.contractForm.value;
     this.contractService.saveContract(contract);
     console.log(this.facilityList);
-    this.router.navigateByUrl('/contract');
+    this.router.navigateByUrl('/list-contract');
   }
 }
