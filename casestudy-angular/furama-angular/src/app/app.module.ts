@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { RouterModule, Routes} from '@angular/router';
 
-
 import { ListFacilityComponent } from './facility/list-facility/list-facility.component';
 import { ListContractComponent } from './contract/list-contract/list-contract.component';
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
@@ -23,9 +22,9 @@ import {ListCustomerComponent} from "./customer/list-customer/list-customer.comp
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
 
-  { path: 'customer', component: ListCustomerComponent},
-  { path: 'facility', component: ListFacilityComponent},
-  { path: 'contract', component: ListContractComponent},
+  { path: 'list-customer', component: ListCustomerComponent},
+  { path: 'list-facility', component: ListFacilityComponent},
+  { path: 'list-contract', component: ListContractComponent},
   { path: 'update-customer/:id', component: UpdateCustomerComponent},
   { path: 'create-customer', component: CreateCustomerComponent},
   { path: 'create-contract', component: CreateContractComponent},

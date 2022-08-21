@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import validate = WebAssembly.validate;
 import {Router} from "@angular/router";
 import {ContractService} from "../service/contract.service";
-import {Customer} from "../../customer/model/customer";
+import {Customer} from "../../model/customer";
 import {CustomerService} from "../../customer/service/customer.service";
 import {Facility} from "../../facility/model/facility";
 import {FacilityService} from "../../facility/service/facility.service";

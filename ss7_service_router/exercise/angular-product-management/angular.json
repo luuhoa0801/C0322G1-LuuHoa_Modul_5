@@ -24,9 +24,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "D:\\Backup\\F\\C0322G1_Modul5\\ss7_service_router\\exercise\\angular-product-management\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "D:\\Backup\\F\\C0322G1_Modul5\\ss7_service_router\\exercise\\angular-product-management\\node_modules\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Contract} from "../model/contract";
+import {Contract} from "../../model/contract";
 import {CustomerService} from "../../customer/service/customer.service";
 import {FacilityService} from "../../facility/service/facility.service";
 

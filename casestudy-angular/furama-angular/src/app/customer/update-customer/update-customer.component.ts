@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CustomerType} from "../model/customerType";
+import {CustomerType} from "../../model/customerType";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerTypeService} from "../service/customer-type.service";
 import {CustomerService} from "../service/customer.service";
-import {Customer} from "../model/customer";
+import {Customer} from "../../model/customer";
 
 @Component({
   selector: 'app-update-customer',
@@ -46,6 +46,6 @@ export class UpdateCustomerComponent implements OnInit {
   updateCustomer() {
     const customer = this.customerForm.value;
     this.customerService.update(customer);
-    this.router.navigateByUrl('customer');
+    this.router.navigateByUrl('list-customer');
   }
 }

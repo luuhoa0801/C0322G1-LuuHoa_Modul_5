@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-  import {Customer} from "../model/customer";
-  import {CustomerType} from "../model/customerType";
+  import {Customer} from "../../model/customer";
+  import {CustomerType} from "../../model/customerType";
 import {CustomerService} from "../service/customer.service";
 import {Router} from "@angular/router";
 

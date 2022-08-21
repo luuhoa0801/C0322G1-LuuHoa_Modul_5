@@ -46,7 +46,7 @@ export class ProductService {
   }
 
   saveProduct(product) {
-    this.products.push(product);
+    return this.products.push(product);
   }
 
   findById(id: number) {
@@ -59,6 +59,7 @@ export class ProductService {
         this.products[i] = product;
       }
     }
+    return product;
   }
 
   deleteProduct(id: number) {

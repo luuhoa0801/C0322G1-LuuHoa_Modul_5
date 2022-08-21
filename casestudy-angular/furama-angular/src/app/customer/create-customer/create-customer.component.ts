@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CustomerType} from "../model/customerType";
+import {CustomerType} from "../../model/customerType";
 import {CustomerService} from "../service/customer.service";
 import {Router} from "@angular/router";
 import {CustomerTypeService} from "../service/customer-type.service";
