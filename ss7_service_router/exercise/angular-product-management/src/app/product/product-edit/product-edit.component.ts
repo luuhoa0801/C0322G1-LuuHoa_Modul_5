@@ -15,6 +15,10 @@ export class ProductEditComponent implements OnInit {
   constructor( private productService: ProductService,
                private activatedRoute: ActivatedRoute,
                private router:Router) {
+
+  }
+
+  ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) =>{
       //param là chuỗi,phải + hoặc parse
       this.id = +paramMap.get('id');
@@ -26,9 +30,6 @@ export class ProductEditComponent implements OnInit {
         description: new FormControl(product.description),
       })
     })
-  }
-
-  ngOnInit(): void {
   }
 
   private getProduct(id: number) {
