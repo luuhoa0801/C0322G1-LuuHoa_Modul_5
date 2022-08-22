@@ -29,7 +29,7 @@ this.rentTypeList = this.rentTypeService.rentTypeList;
       name: new FormControl('',[Validators.required,Validators.pattern('^[A-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$')]),
       area: new FormControl('',[Validators.required,Validators.min(1)]),
       cost: new FormControl('',[Validators.required,Validators.min(0)]),
-      maxPeople: new FormControl('',[Validators.min(1)]),
+      maxPeople: new FormControl('',[Validators.required,Validators.min(1)]),
       standardRoom: new FormControl('0',[Validators.required]),
       descriptionOtherConvenience: new FormControl('0',[Validators.required]),
       poolArea: new FormControl('0',[Validators.required,Validators.min(1)]),

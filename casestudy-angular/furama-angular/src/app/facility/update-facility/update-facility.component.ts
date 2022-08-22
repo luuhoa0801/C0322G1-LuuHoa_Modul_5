@@ -55,6 +55,6 @@ export class UpdateFacilityComponent implements OnInit {
   updateFacility() {
     const facility = this.facilityForm.value;
     this.facilityService.update(facility);
-    this.router.navigateByUrl('list-facility')
+    this.router.navigateByUrl('facility/list-facility')
   }
 }

@@ -17,6 +17,7 @@ export class CreateContractComponent implements OnInit {
   contractForm: FormGroup;
   customerList: Customer[] = [];
   facilityList: Facility[] = [];
+
   constructor(private router: Router,
               private contractService: ContractService,
               private customerService: CustomerService,
@@ -28,11 +29,11 @@ export class CreateContractComponent implements OnInit {
     this.facilityList = this.facilityService.facilityList;
     this.customerList = this.customerService.customerList;
     this.contractForm = new FormGroup({
-      startDate: new FormControl('',[Validators.required]),
-      endDate: new FormControl('',[Validators.required]),
-      deposits: new FormControl('',[Validators.required,Validators.min(0)]),
-      customer: new FormControl('',[Validators.required]),
-      facility: new FormControl('',[Validators.required]),
+      startDate: new FormControl('', [Validators.required]),
+      endDate: new FormControl('', [Validators.required]),
+      deposits: new FormControl('', [Validators.required, Validators.min(0)]),
+      customer: new FormControl('', [Validators.required]),
+      facility: new FormControl('', [Validators.required]),
     })
   }
 
@@ -40,6 +41,6 @@ export class CreateContractComponent implements OnInit {
     const contract = this.contractForm.value;
     this.contractService.saveContract(contract);
     console.log(this.facilityList);
-    this.router.navigateByUrl('/list-contract');
+    this.router.navigateByUrl('/contract/list-contract');
   }
 }

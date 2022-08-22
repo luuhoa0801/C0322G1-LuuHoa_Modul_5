@@ -22,14 +22,14 @@ import {ListCustomerComponent} from "./customer/list-customer/list-customer.comp
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
 
-  { path: 'list-customer', component: ListCustomerComponent},
-  { path: 'list-facility', component: ListFacilityComponent},
-  { path: 'list-contract', component: ListContractComponent},
-  { path: 'update-customer/:id', component: UpdateCustomerComponent},
-  { path: 'create-customer', component: CreateCustomerComponent},
-  { path: 'create-contract', component: CreateContractComponent},
-  { path: 'create-facility', component: CreateFacilityComponent},
-  { path: 'update-facility/:id', component: UpdateFacilityComponent},
+  // { path: 'list-customer', component: ListCustomerComponent},
+  // { path: 'list-facility', component: ListFacilityComponent},
+  // { path: 'list-contract', component: ListContractComponent},
+  // { path: 'update-customer/:id', component: UpdateCustomerComponent},
+  // { path: 'create-customer', component: CreateCustomerComponent},
+  // { path: 'create-contract', component: CreateContractComponent},
+  // { path: 'create-facility', component: CreateFacilityComponent},
+  // { path: 'update-facility/:id', component: UpdateFacilityComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full'},
 

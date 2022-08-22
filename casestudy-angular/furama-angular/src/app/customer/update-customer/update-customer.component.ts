@@ -46,6 +46,6 @@ export class UpdateCustomerComponent implements OnInit {
   updateCustomer() {
     const customer = this.customerForm.value;
     this.customerService.update(customer);
-    this.router.navigateByUrl('list-customer');
+    this.router.navigateByUrl('customer/list-customer');
   }
 }

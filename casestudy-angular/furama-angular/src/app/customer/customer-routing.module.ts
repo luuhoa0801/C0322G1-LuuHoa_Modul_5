@@ -6,9 +6,9 @@ import {UpdateCustomerComponent} from "./update-customer/update-customer.compone
 
 
 const routes: Routes = [
-  // { path: 'list-customer', component: ListCustomerComponent},
-  // { path: 'create-customer', component: CreateCustomerComponent},
-  // {path: 'update-customer/:id', component: UpdateCustomerComponent}
+  { path: 'list-customer', component: ListCustomerComponent},
+  { path: 'create-customer', component: CreateCustomerComponent},
+  {path: 'update-customer/:id', component: UpdateCustomerComponent}
 ];
 
 @NgModule({

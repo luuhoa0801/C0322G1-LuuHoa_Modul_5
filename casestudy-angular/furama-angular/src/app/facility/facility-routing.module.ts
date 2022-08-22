@@ -6,9 +6,9 @@ import {UpdateFacilityComponent} from "./update-facility/update-facility.compone
 
 
 const routes: Routes = [
-  // {path: 'facility', component: ListFacilityComponent},
-  // {path: 'create-facility', component: CreateFacilityComponent},
-  // {path: 'update-facility/:id', component: UpdateFacilityComponent}
+  {path: 'list-facility', component: ListFacilityComponent},
+  {path: 'create-facility', component: CreateFacilityComponent},
+  {path: 'update-facility/:id', component: UpdateFacilityComponent}
 ];
 
 @NgModule({
