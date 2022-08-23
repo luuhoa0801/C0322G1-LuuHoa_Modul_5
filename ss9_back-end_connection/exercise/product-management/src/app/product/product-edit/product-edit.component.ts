@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CategoryService} from '../../service/category.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Category} from '../../model/category';
 import {ProductService} from '../../service/product.service';
 
@@ -17,24 +17,26 @@ export class ProductEditComponent implements OnInit {
 
   constructor(private categoryService: CategoryService,
               private activatedRoute: ActivatedRoute,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.getAllCategory();
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
       this.getProduct(this.id);
     });
   }
 
-  ngOnInit(): void {
-    this.getAllCategory();
-  }
-
   private getProduct(id: number) {
-    const product = this.productForm.value;
-    product.category = {
-      id: product.category
-    };
-    this.productService.updateProduct(id, product).subscribe(() => {
-      alert('Cập nhật thành công');
+    this.productService.findById(id).subscribe(product => {
+      this.productForm = new FormGroup({
+        id: new FormControl(product.id),
+        name: new FormControl(product.name.id),
+        price: new FormControl(product.price),
+        description: new FormControl(product.description),
+      });
     });
   }
 
@@ -43,14 +45,15 @@ export class ProductEditComponent implements OnInit {
       this.categories = categoires;
     });
   }
-
   updateProduct(id: number) {
     const product = this.productForm.value;
-    product.category = {
-      id: product.category
-    };
-    this.productService.updateProduct(id, product).subscribe(() => {
-      alert('Cập nhật thành công');
+    this.categoryService.findById(parseInt(this.productForm.value.name)).subscribe(next => {
+      product.name = next;
+      this.productService.updateProduct(id, product).subscribe(() => {
+        this.productForm.reset();
+        alert(' Chinh sua thanh cong');
+        this.router.navigateByUrl('/product/list');
+      });
     });
   }
 }

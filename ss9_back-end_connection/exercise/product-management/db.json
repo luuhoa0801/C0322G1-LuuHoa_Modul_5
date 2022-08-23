@@ -1,19 +1,53 @@
 {
-  "posts": [
+  "categories": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "IPhonedddd"
+    },
+    {
+      "id": 2,
+      "name": "Samsungs"
+    },
+    {
+      "id": 3,
+      "name": "LG"
+    },
+    {
+      "id": 4,
+      "name": "cuoc song"
+    },
+    {
+      "id": 5,
+      "name": "opple"
     }
   ],
-  "comments": [
+  "products": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": {
+        "id": 3,
+        "name": "LG"
+      },
+      "price": 1000444,
+      "description": "111222"
+    },
+    {
+      "id": 2,
+      "name": {
+        "id": 2,
+        "name": "Samsung"
+      },
+      "price": 2000,
+      "description": "222wwww"
+    },
+    {
+      "id": 3,
+      "name": {
+        "id": 4,
+        "name": "cuoc song"
+      },
+      "price": 3333,
+      "description": "khong co do"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

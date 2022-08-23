@@ -10,27 +10,28 @@ const API_URL = `${environment.apiUrl}`;
   providedIn: 'root'
 })
 export class ProductService {
+  private URL_PRODUCT = 'http://localhost:3000/products';
   products: Product[] = [];
 
   constructor(private http: HttpClient) {
   }
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(API_URL + '/products');
+    return this.http.get<Product[]>(this.URL_PRODUCT);
   }
 
   saveProduct(product): Observable<Product> {
-    return this.http.post<Product>(API_URL + '/products', product);
+    return this.http.post<Product>(this.URL_PRODUCT, product);
   }
-  findById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${API_URL}/products/${id}`);
+  findById(id: number): Observable<any> {
+    return this.http.get<any>(this.URL_PRODUCT + '/' + id);
   }
 
   updateProduct(id: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${API_URL}/products/${id}`, product);
+    return this.http.put<Product>(this.URL_PRODUCT + '/' + id, product);
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.http.delete<Product>(`${API_URL}/products/${id}`);
+    return this.http.delete<Product>(this.URL_PRODUCT + '/' + id);
   }
 }

@@ -11,22 +11,23 @@ import { CategoryListComponent } from './category/category-list/category-list.co
 import { CategoryCreateComponent } from './category/category-create/category-create.component';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ProductModule} from './product/product.module';
+import {CategoryModule} from './category/category.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductCreateComponent,
-    ProductListComponent,
     ProductEditComponent,
-    HttpClientModule,
-    CategoryListComponent,
-    CategoryCreateComponent,
-    CategoryEditComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    ProductModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

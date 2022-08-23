@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
+  valueDelete = [];
+
   constructor(private categoryService: CategoryService,
               private router: Router) {
   }
@@ -19,9 +21,21 @@ export class CategoryListComponent implements OnInit {
   }
 
   // @ts-ignore
-  getAll(): Category[] {
-    this.categoryService.getAll().subscribe(categories => {
+  getAll() {
+    return this.categoryService.getAll().subscribe(categories => {
       this.categories = categories;
+    }, error => {
+    });
+  }
+
+  selDelete(id: number, name: string) {
+    this.valueDelete.push(id);
+    this.valueDelete.push(name);
+  }
+
+  deleteCategory(id: number) {
+    this.categoryService.deleteCategory(id).subscribe(() => {
+      this.router.navigateByUrl('category/list');
     });
   }
 }

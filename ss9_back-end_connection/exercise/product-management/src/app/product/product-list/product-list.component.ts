@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  valueDelete = [];
+  name: string;
+  id: number;
 
   constructor(private productService: ProductService,
               private router: Router) {
@@ -23,17 +24,19 @@ export class ProductListComponent implements OnInit {
   getAll() {
     this.productService.getAll().subscribe(products => {
       this.products = products;
-    });
+    }, error => {
+      });
   }
 
-  selDelete(id: number, name: string): void {
-    this.valueDelete.push(id);
-    this.valueDelete.push(name);
+  openDelete(id: number, name: string): void {
+    this.id = id;
+    this.name = name;
   }
 
   deleteProduct(id: number): void {
     this.productService.deleteProduct(id).subscribe(() => {
-      this.router.navigateByUrl('category/list');
+      this.getAll();
+      this.router.navigateByUrl('product/list');
     });
   }
 

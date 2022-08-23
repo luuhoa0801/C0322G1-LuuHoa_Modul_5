@@ -4,17 +4,11 @@
   <tr>
     <td>STT</td>
     <td>Tên</td>
-    <td colspan="2"></td>
+    <td></td>
   </tr>
   <tr *ngFor="let category of categories; index as i">
     <td>{{i + 1}}</td>
     <td>{{category.name}}</td>
-    <td><a [routerLink]="['/category/edit',category.id]">Edit</a></td>
-<!--    <td>-->
-<!--      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"-->
-<!--              (click)="selDelete(category.id, category.name)">-->
-<!--        Delete-->
-<!--      </button>-->
-<!--    </td>-->
+    <td><a routerLink="/category/edit/{{category.id}}">Edit</a></td>
   </tr>
 </table>
