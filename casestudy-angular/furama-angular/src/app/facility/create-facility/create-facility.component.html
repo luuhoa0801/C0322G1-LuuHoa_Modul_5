@@ -1,145 +1,142 @@
-<form [formGroup]="facilityForm">
-  <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Create Facility</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="container" style="width: 50rem;margin: auto">
+  <div class="row">
+    <div class="bg-white">
+      <div class="h1 center-box "> Thêm mới dịch vụ </div>
+      <form class="p-3" [formGroup]="facilityForm" (ngSubmit)="createFacility()">
+        <input type="text" hidden formControlName="id">
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label >Loai dich vu</label>
+          <select  name="facilityType" class="form-control custom-select bg-light" id="facilityType" formControlName="facilityType" (change)="changcility($event.target.value)">
+            <option *ngFor="let item of facilityTypelist" [value]="item.id">{{item.name}}</option>
+          </select>
         </div>
-        <div class="modal-body">
-          <input class="form-control" type="hidden" id="add-serviceId">
-          <div class="form-group">
-            <label>Loại dịch vụ</label>
-            <select class="form-control w-100" id="add-serviceType" onchange="formCreate()" formControlName="facilityType">
-              <option value="1">Villa</option>
-              <option value="2" >House</option>
-              <option value="3" >Room</option>
-            </select>
 
-          </div>
-          <div class="form-group">
-            <label>Tên dịch vụ</label>
-            <input class="form-control" type="text" id="add-serviceName" name="name" formControlName="name">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.name.hasError('required')&& (facilityForm.controls.name.touched)">
-              Không để trống
-            </p>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.name.hasError('pattern')&& (facilityForm.controls.name.touched)">
-              Phải đúng định dạng
-            </p>
-          </div>
-
-          <div class="form-group">
-            <label>Diện tích sử dụng</label>
-            <input class="form-control" type="number" id="add-serviceArea" name="area" formControlName="area">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.area.hasError('required')&& (facilityForm.controls.area.touched)">
-              Không để trống
-            </p>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.area.hasError('min')&& (facilityForm.controls.area.touched)">
-              Không âm
-            </p>
-          </div>
-
-          <div class="form-group">
-            <label>Giá</label>
-            <input class="form-control" type="number" id="add-serviceCost" name="cost" formControlName="cost">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.cost.hasError('required')&& (facilityForm.controls.cost.touched)">
-              Không để trống
-            </p>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.cost.hasError('pattern')&& (facilityForm.controls.cost.touched)">
-              Không âm
-            </p>
-          </div>
-
-          <div class="form-group">
-            <label>Số người tối đa</label>
-            <input class="form-control" type="number"  name="maxPeople" formControlName="maxPeople">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.maxPeople.hasError('required')&& (facilityForm.controls.maxPeople.touched)">
-              Không để trống
-            </p>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.maxPeople.hasError('min')&& (facilityForm.controls.maxPeople.touched)">
-              Không âm
-            </p>
-          </div>
-
-          <div class="form-group" id="add-standardRoom" >
-            <label>Tiêu chuẩn phòng</label>
-            <input class="form-control" type="text" name="standardRoom" formControlName="standardRoom">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.standardRoom.hasError('required')&& (facilityForm.controls.standardRoom.touched)">
-              Không để trống
-            </p>
-          </div>
-
-          <div class="form-group" id="add-descriptionOtherConvenience" >
-            <label>Mô tả tiện nghi khác</label>
-            <input class="form-control" type="text" name="descriptionOtherConvenience" formControlName="descriptionOtherConvenience">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.descriptionOtherConvenience.hasError('required')&& (facilityForm.controls.descriptionOtherConvenience.touched)">
-              Không để trống
-            </p>
-          </div>
-
-          <div class="form-group" id="add-poolArea">
-            <label>Diện tích hồ bơi</label>
-            <input class="form-control" type="number" name="poolArea" formControlName="poolArea">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.poolArea.hasError('required')&& (facilityForm.controls.poolArea.touched)">
-              Không để trống
-            </p>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.poolArea.hasError('pattern')&& (facilityForm.controls.poolArea.touched)">
-              Không âm
-            </p>
-          </div>
-
-          <div class="form-group" id="add-numberOfFloors">
-            <label>Số tầng</label>
-            <input class="form-control" type="number" name="numberOfFloors" formControlName="numberOfFloors">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.numberOfFloors.hasError('required')&& (facilityForm.controls.numberOfFloors.touched)">
-              Không để trống
-            </p>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.numberOfFloors.hasError('pattern')&& (facilityForm.controls.numberOfFloors.touched)">
-              Không âm
-            </p>
-          </div>
-
-          <div class="form-group">
-            <label>Kiểu thuê</label>
-            <select class="form-control w-100" id="add-rentType" formControlName="rentType">
-              <option *ngFor="let item of rentTypeList" [ngValue]="item.id">{{item.name}}</option>
-            </select>
-            <p style="color: red"
-               *ngIf="facilityForm.controls.rentType.hasError('required')&& (facilityForm.controls.rentType.touched)">
-              Không để trống
-            </p>
-          </div>
-
-          <div class="form-group" id="add-url">
-            <label>URL</label>
-            <input class="form-control" type="text" name="url" formControlName="url">
-            <p style="color: red"
-               *ngIf="facilityForm.controls.url.hasError('required')&& (facilityForm.controls.url.touched)">
-              Không để trống
-            </p>
-          </div>
-
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label >Tên</label>
+          <input type="text" class="form-control"  formControlName="name">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.name.hasError('required')&& (facilityForm.controls.name.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.name.hasError('pattern')&& (facilityForm.controls.name.touched)">
+            Phải đúng định dạng
+          </p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="createFacility()">Create
-          </button>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Diện tích sử dụng:</label>
+          <input type="number" class="form-control"  name="area" formControlName="area">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.area.hasError('required')&& (facilityForm.controls.area.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.area.hasError('min')&& (facilityForm.controls.area.touched)">
+            Phải không âm
+          </p>
         </div>
-      </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Giá:</label>
+          <input type="number" class="form-control" name="cost" formControlName="cost" >
+          <p style="color: red"
+             *ngIf="facilityForm.controls.cost.hasError('required')&& (facilityForm.controls.cost.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.cost.hasError('min')&& (facilityForm.controls.cost.touched)">
+            Không âm
+          </p>
+        </div>
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Số người tối đa</label>
+          <input class="form-control" type="number"  name="maxPeople" formControlName="maxPeople">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.maxPeople.hasError('required')&& (facilityForm.controls.maxPeople.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.maxPeople.hasError('min')&& (facilityForm.controls.maxPeople.touched)">
+            Không âm
+          </p>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem"  *ngIf="temp ==1 || temp==2">
+          <label>Tiêu chuẩn phòng</label>
+          <input class="form-control" type="text" name="standardRoom" formControlName="standardRoom">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.standardRoom.hasError('required')&& (facilityForm.controls.standardRoom.touched)">
+            Không để trống
+          </p>
+        </div>
+        <div class="form-group" *ngIf="temp==1||temp==2" >
+          <label>Mô tả tiện nghi khác</label>
+          <input class="form-control" type="text" name="descriptionOtherConvenience" formControlName="descriptionOtherConvenience">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.descriptionOtherConvenience.hasError('required')&& (facilityForm.controls.descriptionOtherConvenience.touched)">
+            Không để trống
+          </p>
+        </div>
+        <div class="form-group" *ngIf="temp==1">
+          <label>Diện tích hồ bơi</label>
+          <input class="form-control" type="number" name="poolArea" formControlName="poolArea">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.poolArea.hasError('required')&& (facilityForm.controls.poolArea.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.poolArea.hasError('min')&& (facilityForm.controls.poolArea.touched)">
+            Không âm
+          </p>
+        </div>
+        <div class="form-group" *ngIf="temp == 1 || temp == 2">
+          <label>Số tầng</label>
+          <input class="form-control" type="number" name="numberOfFloors" formControlName="numberOfFloors">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.numberOfFloors.hasError('required')&& (facilityForm.controls.numberOfFloors.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.numberOfFloors.hasError('min')&& (facilityForm.controls.numberOfFloors.touched)">
+            Không âm
+          </p>
+        </div>
+        <div class="form-group" *ngIf="temp == 3">
+          <label>Dịch vụ miễn phí</label>
+          <input class="form-control" type="text" name="facilityFree" formControlName="facilityFree">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.facilityFree.hasError('required')&& (facilityForm.controls.facilityFree.touched)">
+            Không để trống
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Kiểu thuê</label>
+          <select class="form-control w-100" id="add-rentType" formControlName="rentType">
+            <option *ngFor="let item of rentTypeList" [ngValue]="item.id">{{item.name}}</option>
+          </select>
+          <p style="color: red"
+             *ngIf="facilityForm.controls.rentType.hasError('required')&& (facilityForm.controls.rentType.touched)">
+            Không để trống
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>URL</label>
+          <input class="form-control" type="text" name="url" formControlName="url">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.url.hasError('required')&& (facilityForm.controls.url.touched)">
+            Không để trống
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1rem;margin-top: 5px">
+          <button [routerLink]="['/facility/list-facility']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
+          <button class="btn btn-danger" style="margin-left: 5px">Thêm mới</button>
+        </div>
+      </form>
     </div>
   </div>
-</form>
+</div>
+

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CustomerType} from "../../model/customerType";
+import {CustomerType} from "../model/customerType";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CustomerTypeService} from "../service/customer-type.service";
 import {CustomerService} from "../service/customer.service";
-import {Customer} from "../../model/customer";
+import {Customer} from "../model/customer";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-update-customer',
@@ -18,7 +19,8 @@ export class UpdateCustomerComponent implements OnInit {
   constructor( private router : Router,
                private customerTypeService: CustomerTypeService,
                private customerService: CustomerService,
-               private activatedRoute: ActivatedRoute) { }
+               private activatedRoute: ActivatedRoute,
+               private toast:ToastrService) { }
 
   ngOnInit(): void {
     this.customerTypeList = this.customerTypeService.customerTypeList;
@@ -46,6 +48,7 @@ export class UpdateCustomerComponent implements OnInit {
   updateCustomer() {
     const customer = this.customerForm.value;
     this.customerService.update(customer);
+    this.toast.success("Chỉnh sửa thành công")
     this.router.navigateByUrl('customer/list-customer');
   }
 }

@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
     this.getAll()
   }
 
-  getAll(): Product[] {
+  getAll():Product[] {
     return this.products = this.productService.getAll();
   }
 

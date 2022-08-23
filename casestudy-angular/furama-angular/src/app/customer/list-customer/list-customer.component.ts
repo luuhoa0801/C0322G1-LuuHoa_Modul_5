@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-  import {Customer} from "../../model/customer";
-  import {CustomerType} from "../../model/customerType";
+import {Component, OnInit} from '@angular/core';
+import {Customer} from "../model/customer";
+import {CustomerType} from "../model/customerType";
 import {CustomerService} from "../service/customer.service";
 import {Router} from "@angular/router";
 
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class ListCustomerComponent implements OnInit {
 
-  customerList: Customer[] =[];
+  customerList: Customer[] = [];
   id = 0;
   name = '';
 
@@ -24,11 +24,12 @@ export class ListCustomerComponent implements OnInit {
     this.customerList = this.customerService.getAll();
   }
 
-  valueDelete(id: number, name: string) {
+  valueDelete(id: number, name: string):void {
     this.id = id;
     this.name = name;
   }
-  delete() {
+
+  delete():void {
     this.customerService.delete(this.id);
     this.customerList = this.customerService.getAll();
   }

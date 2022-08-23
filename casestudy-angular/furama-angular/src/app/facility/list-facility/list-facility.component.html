@@ -1,9 +1,8 @@
 <div class="container-fluid" style="background-color: #0dcaf0">
   <div class="row" style="height: 3rem;margin: auto" >
     <div class="col-4">
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add"
-              style="margin-top: 2rem;margin-left: 11.3rem">
-        Create
+      <button style="margin-top: 2rem;margin-left: 15rem" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomer ">
+        <a [routerLink]="['/facility/create-facility']"  class="text-white"> Create</a>
       </button>
     </div>
     <div class="col-4 fs-1" style="margin-left: 11rem;margin-top: 1rem;font-weight: 900">
@@ -68,7 +67,6 @@
     </div>
   </div>
 
-<app-create-facility></app-create-facility>
   <!--Modal thêm mới-->
 
 

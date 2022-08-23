@@ -7,6 +7,7 @@ import {FacilityTypeService} from "../service/facility-type.service";
 import {RentTypeService} from "../service/rent-type.service";
 import {FacilityService} from "../service/facility.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-update-facility',
@@ -22,7 +23,8 @@ export class UpdateFacilityComponent implements OnInit {
               private rentTypeService: RentTypeService,
               private facilityService: FacilityService,
               private activatedRoute: ActivatedRoute,
-              private router:Router) { }
+              private router:Router,
+              private toast:ToastrService) { }
 
   ngOnInit(): void {
     this.facilityTypeList = this.facilityTypeService.facilityTypeList;
@@ -55,6 +57,7 @@ export class UpdateFacilityComponent implements OnInit {
   updateFacility() {
     const facility = this.facilityForm.value;
     this.facilityService.update(facility);
+    this.toast.success("Chỉnh sửa thành công")
     this.router.navigateByUrl('facility/list-facility')
   }
 }
