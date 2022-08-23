@@ -14,10 +14,26 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./create-facility.component.css']
 })
 export class CreateFacilityComponent implements OnInit {
+  facilityForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(),
+    area: new FormControl(),
+    cost: new FormControl(),
+    maxPeople: new FormControl(),
+    standardRoom: new FormControl(),
+    descriptionOtherConvenience: new FormControl(),
+    poolArea: new FormControl(),
+    numberOfFloors: new FormControl(),
+    facilityFree: new FormControl(),
+    url: new FormControl(),
+    rentType: new FormControl(),
+    facilityType: new FormControl(),
+  });
+
   facilityTypelist: FacilityType[] = [];
   rentTypeList: RentType[] = [];
-  temp : number = 1;
-  public facilityForm: FormGroup;
+
+  temp:number =1;
 
   constructor(private facilityService: FacilityService,
               private facilityTypeService: FacilityTypeService,
@@ -27,36 +43,51 @@ export class CreateFacilityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.facilityTypelist = this.facilityTypeService.facilityTypeList;
-    this.rentTypeList = this.rentTypeService.rentTypeList;
+    this.getAllFacilityType();
+    this.getAllRentType();
+
     this.facilityForm = new FormGroup({
       id: new FormControl(),
       name: new FormControl('', [Validators.required, Validators.pattern('^[A-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$')]),
       area: new FormControl('', [Validators.required, Validators.min(1)]),
       cost: new FormControl('', [Validators.required, Validators.min(0)]),
       maxPeople: new FormControl('', [Validators.required, Validators.min(1)]),
-      standardRoom: new FormControl('0', [Validators.required]),
+      standardRoom: new FormControl('', [Validators.required]),
       descriptionOtherConvenience: new FormControl('0', [Validators.required]),
-      poolArea: new FormControl('0', [Validators.required, Validators.min(1)]),
+      poolArea: new FormControl('', [Validators.required, Validators.min(1)]),
       numberOfFloors: new FormControl('', [Validators.required, Validators.min(0)]),
       facilityFree: new FormControl('', [Validators.required]),
-      url: new FormControl('0', [Validators.required]),
+      url: new FormControl('', [Validators.required]),
       rentType: new FormControl('1'),
       facilityType: new FormControl('1'),
     });
 
   }
 
+  changcility(value: number) {
+    this.temp=value;
+  }
+
+  private getAllFacilityType() {
+    this.facilityTypeService.getListFacilityType().subscribe(value => {
+      this.facilityTypelist = value;
+    })
+  }
+
+  private getAllRentType() {
+    this.rentTypeService.getListRentType().subscribe(value => {
+      this.rentTypeList = value;
+    })
+  }
 
   createFacility() {
     const facility = this.facilityForm.value;
-    this.facilityService.saveFacility(facility);
-    this.toast.success("Thêm mới thành công")
-    this.router.navigateByUrl('/facility/list-facility');
-    console.log(this.facilityService.facilityList)
-  }
-
-  changcility(value: number) {
-    this.temp=value;
+    this.facilityService.CreateFacility(facility).subscribe(next => {
+      alert('thêm mới thành công');
+      this.facilityForm.reset();
+      this.router.navigateByUrl('facility/list-facility');
+    },error => {
+      alert('lỗi');
+    })
   }
 }

@@ -1,0 +1,197 @@
+{
+  "customer": [
+    {
+      "id": 2,
+      "name": "Van Chung",
+      "birthday": "09-09-1999",
+      "gender": false,
+      "idCard": "123333333",
+      "phone": 123422222,
+      "email": "chung@gmail.com",
+      "address": "Ha Noi",
+      "customerType": {
+        "id": 3,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Hoa Luu",
+      "birthday": "2022-08-04",
+      "gender": false,
+      "idCard": "122222222",
+      "phone": "0901234567",
+      "email": "luuhoa@gmail.com",
+      "address": "Bắc Ninh",
+      "customerType": {
+        "id": 3,
+        "name": "Member"
+      }
+    },
+    {
+      "name": "Sdasdas",
+      "birthday": "2022-08-18",
+      "gender": true,
+      "idCard": "131313133",
+      "phone": "0901234567",
+      "email": "trung123123@gmail.com",
+      "address": "Bắc Ninh",
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "id": 4
+    },
+    {
+      "name": "Lsisssss",
+      "birthday": "2022-08-05",
+      "gender": true,
+      "idCard": "112222222",
+      "phone": "0901233445",
+      "email": "trung123123@gmail.com",
+      "address": "Bắc Ninh",
+      "customerType": {
+        "id": 3,
+        "name": "Member"
+      },
+      "id": 5
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Vip"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 3,
+      "name": "Member"
+    }
+  ],
+  "facilityType": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "Year"
+    },
+    {
+      "id": 2,
+      "name": "Month"
+    },
+    {
+      "id": 3,
+      "name": "Day"
+    }
+  ],
+  "facility": [
+    {
+      "id": 1,
+      "name": "OCEAN SUITE",
+      "area": 10,
+      "cost": 1000,
+      "maxPeople": 2,
+      "rentType": {
+        "id": 1,
+        "name": "Year"
+      },
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "không",
+      "poolArea": 50,
+      "numberOfFloors": 2,
+      "facilityFree": "không",
+      "facilityType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "url": "\\assets\\img\\fu1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "OCEAN STUDIO SUITE",
+      "area": 80,
+      "cost": 2000,
+      "maxPeople": 3,
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "không",
+      "poolArea": 50,
+      "numberOfFloors": 3,
+      "facilityFree": "không",
+      "facilityType": {
+        "id": 2,
+        "name": "House"
+      },
+      "url": "\\assets\\img\\fu2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "OCEAN DELUXE",
+      "area": 30,
+      "cost": 3000,
+      "maxPeople": 5,
+      "rentType": {
+        "id": 3,
+        "name": "Day"
+      },
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "không",
+      "poolArea": 50,
+      "numberOfFloors": 3,
+      "facilityFree": "không",
+      "facilityType": {
+        "id": 3,
+        "name": "Room"
+      },
+      "url": "\\assets\\img\\fu3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Asss",
+      "area": 1,
+      "cost": 1,
+      "maxPeople": 1,
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "khong",
+      "poolArea": "",
+      "numberOfFloors": 1,
+      "facilityFree": "",
+      "url": "\\assets\\img\\fu3.jpg",
+      "rentType": 3,
+      "facilityType": "2"
+    },
+    {
+      "id": 5,
+      "name": "Dssss",
+      "area": 1,
+      "cost": 1,
+      "maxPeople": 2,
+      "standardRoom": "",
+      "descriptionOtherConvenience": "0",
+      "poolArea": "",
+      "numberOfFloors": "",
+      "facilityFree": "miễn phí bữa ăn ngày đầu tiên",
+      "url": "\\assets\\img\\fu3.jpg",
+      "rentType": 3,
+      "facilityType": "3"
+    }
+  ]
+}

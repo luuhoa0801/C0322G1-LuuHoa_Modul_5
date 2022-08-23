@@ -93,7 +93,7 @@
         <div class="form-group" style="margin-bottom: 1rem">
           <label> Kiểu khách hàng : </label>
           <select name="customerType" class="form-control custom-select bg-light" id="customerType" formControlName="customerType">
-            <option *ngFor="let item of customerTypeList" [ngValue]="item.id">{{item.name}}</option>
+            <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.name}}</option>
           </select>
         </div>
         <div style="margin-bottom: 1rem;margin-top: 5px">

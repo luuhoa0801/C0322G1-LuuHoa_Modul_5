@@ -12,33 +12,52 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./create-customer.component.css']
 })
 export class CreateCustomerComponent implements OnInit {
-  customerForm: FormGroup;
+  customerForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    birthday: new FormControl(),
+    gender: new FormControl(),
+    idCard: new FormControl(),
+    phone: new FormControl(),
+    email: new FormControl(),
+    address: new FormControl(),
+    customerType: new FormControl(),
+  });
   customerTypeList: CustomerType[] = [];
+
   constructor(private customerService: CustomerService,
               private router: Router,
               private customerTypeService: CustomerTypeService,
-              private toast:ToastrService) {
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
-    this.customerTypeList = this.customerTypeService.customerTypeList;
-    console.log(this.customerTypeList)
+    this.getAllListCustomerType();
     this.customerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.pattern('^[A-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$')]),
       birthday: new FormControl(),
       gender: new FormControl(true),
       idCard: new FormControl('', [Validators.required, Validators.pattern('^[1-9]{9}$')]),
-      phone: new FormControl('',[Validators.required,Validators.pattern('^090[0-9]{7}$')]),
-      email: new FormControl('',[Validators.required,Validators.pattern('^[\\w\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
-      address: new FormControl('',Validators.required),
-      customerType: new FormControl(1),
+      phone: new FormControl('', [Validators.required, Validators.pattern('^090[0-9]{7}$')]),
+      email: new FormControl('', [Validators.required, Validators.pattern('^[\\w\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
+      address: new FormControl('', Validators.required),
+      customerType: new FormControl(),
+    })
+  }
+
+  getAllListCustomerType() {
+    this.customerTypeService.getListCustomerType().subscribe(next => {
+      this.customerTypeList = next;
     })
   }
 
   createCustomer() {
     const customer = this.customerForm.value;
-    this.customerService.save(customer);
-    this.toast.success("Thêm mới thành công")
-    this.router.navigateByUrl('/customer/list-customer');
+    this.customerService.CreateCustomer(customer).subscribe(next => {
+      alert('thêm mới thành công');
+      this.customerForm.reset();
+      this.router.navigateByUrl('customer/list-customer');
+    },error => {
+      alert('lỗi');
+    })
   }
 }

@@ -105,7 +105,7 @@
         <div class="form-group">
           <label>Kiểu thuê</label>
           <select class="form-control w-100" id="add-rentType" formControlName="rentType">
-            <option *ngFor="let item of rentTypeList" [ngValue]="item.id">{{item.name}}</option>
+            <option *ngFor="let item of rentTypeList" [ngValue]="item">{{item.name}}</option>
           </select>
           <p style="color: red"
              *ngIf="facilityForm.controls.rentType.hasError('required')&& (facilityForm.controls.rentType.touched)">

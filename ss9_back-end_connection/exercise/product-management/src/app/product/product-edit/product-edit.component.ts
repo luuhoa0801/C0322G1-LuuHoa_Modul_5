@@ -28,6 +28,11 @@ export class ProductEditComponent implements OnInit {
       this.getProduct(this.id);
     });
   }
+  getAllCategory() {
+    this.categoryService.getAll().subscribe(categoires => {
+      this.categories = categoires;
+    });
+  }
 
   private getProduct(id: number) {
     this.productService.findById(id).subscribe(product => {
@@ -40,11 +45,7 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  getAllCategory() {
-    this.categoryService.getAll().subscribe(categoires => {
-      this.categories = categoires;
-    });
-  }
+
   updateProduct(id: number) {
     const product = this.productForm.value;
     this.categoryService.findById(parseInt(this.productForm.value.name)).subscribe(next => {

@@ -1,18 +1,19 @@
 import {Injectable} from '@angular/core';
 import {RentType} from "../model/rentType";
+import {Observable} from "rxjs";
+import {CustomerType} from "../../customer/model/customerType";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RentTypeService {
-  rentTypeList: RentType[] = [];
 
-  constructor() {
-    this.rentTypeList.push(
-      {id: 1, name: 'Year'},
-      {id: 1, name: 'Month'},
-      {id: 1, name: 'Day'}
-    )
+
+  constructor(private httpClient:HttpClient) {
+  }
+  getListRentType(): Observable<RentType[]>{
+    return this.httpClient.get<RentType[]>('http://localhost:3000/rentType');
   }
 }
 

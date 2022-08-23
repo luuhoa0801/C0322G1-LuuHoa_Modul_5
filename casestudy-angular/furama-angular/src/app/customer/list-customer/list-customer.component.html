@@ -62,7 +62,8 @@
         <button type="button" class="btn btn-primary">
           <a [routerLink]="['../update-customer', temp.id]" style="color: white">Edit</a>
         </button>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="valueDelete(temp.id, temp.name)"
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="valueDelete(temp.id, temp.name)"
                 style="margin-left: 5px">
           Delete
         </button>
@@ -93,7 +94,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="delete()" data-bs-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-primary" (click)="delete(id)" data-bs-dismiss="modal">Delete</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../model/customer";
-import {CustomerType} from "../model/customerType";
 import {CustomerService} from "../service/customer.service";
 import {Router} from "@angular/router";
 
@@ -12,25 +11,37 @@ import {Router} from "@angular/router";
 export class ListCustomerComponent implements OnInit {
 
   customerList: Customer[] = [];
-  id = 0;
-  name = '';
+  id :number ;
+  name :string ;
 
   constructor(private customerService: CustomerService,
-              private router: Router) {
-
+              private router: Router,) {
   }
 
   ngOnInit(): void {
-    this.customerList = this.customerService.getAll();
+    this.getAll();
   }
 
-  valueDelete(id: number, name: string):void {
+  getAll(){
+    this.customerService.getListCustomer().subscribe(value => {
+      if (value !== undefined){
+        this.customerList = value;
+        console.log(value)
+      }
+    },error => {
+      alert("lOI")
+    })
+  }
+
+  valueDelete(id: number, name: string) {
     this.id = id;
     this.name = name;
   }
 
-  delete():void {
-    this.customerService.delete(this.id);
-    this.customerList = this.customerService.getAll();
+  delete(id) {
+    this.customerService.deleteCustomer(id).subscribe(next =>{
+     this.getAll();
+     this.router.navigateByUrl('customer/list-customer')
+    })
   }
 }

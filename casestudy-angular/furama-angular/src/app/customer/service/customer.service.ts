@@ -1,65 +1,40 @@
 import {Injectable} from '@angular/core';
 import {Customer} from "../model/customer";
 import {CustomerTypeService} from "./customer-type.service";
-
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {environment} from "../../../environments/environment";
+const API_URLCustomer =`${environment.apiUrlCustomer}`;
+const API_URLContract =`${environment.apiUrlContract}`;
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
   customerList: Customer[] = []
 
-  constructor(private customerTypeService: CustomerTypeService) {
-    this.customerList.push({
-      id: 1,
-      name: "Hòa",
-      birthday: "01-01-1990", gender: true, idCard: "123456789",
-      phone: 12345,
-      email: "hoa@gmail.com",
-      address: "QN",
-      customerType: customerTypeService.customerTypeList[0]
-    }, {
-      id: 2, name: "Ly", birthday: "02-02-1999", gender: false, idCard: "222222",
-      phone: 789123, email: "ly@gmail.com", address: "Da Nang", customerType: customerTypeService.customerTypeList[1]
-    }, {
-      id: 3, name: "Duc", birthday: "03-03-1995", gender: true, idCard: "333333",
-      phone: 132342, email: "duc@gmail.com", address: "HN", customerType: customerTypeService.customerTypeList[1]
-    });
+  constructor(private customerTypeService: CustomerTypeService,
+              private httpClient: HttpClient) {
   }
-  getAll() {
-    return this.customerList;
+
+  // @ts-ignore
+  getListCustomer(): Observable<Customer[]>{
+    return this.httpClient.get<Customer[]>(API_URLCustomer);
   }
-  save(customer) {
-    customer.id = this.customerList.length + 1;
-    if (customer.customerType == 1) {
-      customer.customerType = this.customerTypeService.customerTypeList[0];
-    } else if (customer.customerType == 2) {
-      customer.customerType = this.customerTypeService.customerTypeList[1];
-    }
-    this.customerList.push(customer);
+
+  CreateCustomer(customer): Observable<Customer> {
+    return this.httpClient.post<Customer>(API_URLCustomer, customer);
   }
-  getById(id) {
-    for (let item of this.customerList) {
-        if (item.id === id) {
-          return item;
-        }
-    }
+  findById(id: number): Observable<any> {
+    return this.httpClient.get<any>(API_URLCustomer + '/' + id);
   }
-  update(customer){
-    if (customer.customerType === 1) {
-      customer.customerType = this.customerTypeService.customerTypeList[0];
-    } else if (customer.customerType === 2) {
-      customer.customerType = this.customerTypeService.customerTypeList[1];
-    }
-    for (let i = 0; i < this.customerList.length; i++) {
-      if (this.customerList[i].id === customer.id) {
-        this.customerList[i] = customer;
-      }
-    }
-    console.log(this.customerList);
+
+  updateCustomer(id: number, customer: Customer): Observable<Customer> {
+    return this.httpClient.put<Customer>(API_URLCustomer + '/' + id , customer);
   }
-  delete(id) {
-    this.customerList = this.customerList.filter(customer => {
-      return customer.id !== id;
-    });
+
+  deleteCustomer(id: number): Observable<Customer> {
+    return this.httpClient.delete<Customer>(API_URLCustomer + '/' + id);
   }
+
+
 }
