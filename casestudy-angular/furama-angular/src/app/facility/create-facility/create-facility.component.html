@@ -6,7 +6,8 @@
         <input type="text" hidden formControlName="id">
         <div class="form-group" style="margin-bottom: 1rem">
           <label >Loai dich vu</label>
-          <select  name="facilityType" class="form-control custom-select bg-light" id="facilityType" formControlName="facilityType" (change)="changcility($event.target.value)">
+          <select  name="facilityType" class="form-control custom-select bg-light" id="facilityType"
+                   formControlName="facilityType" (change)="changcility($event.target.value)">
             <option *ngFor="let item of facilityTypelist" [value]="item.id">{{item.name}}</option>
           </select>
         </div>

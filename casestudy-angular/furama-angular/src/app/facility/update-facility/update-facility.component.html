@@ -6,10 +6,10 @@
         <input type="text" hidden formControlName="id">
         <div class="form-group" style="margin-bottom: 1rem">
           <label >Loai dich vu</label>
-          <select name="facilityType" class="form-control custom-select bg-light" id="facilityType" formControlName="facilityType">
-            <option *ngFor="let item of facilityTypeList" [ngValue]="item.id">{{item.name}}</option>
+          <select  name="facilityType" class="form-control custom-select bg-light" id="facilityType"
+                   formControlName="facilityType" >
+            <option *ngFor="let item of facilityTypeList" [ngValue]="item" >{{item.name}}</option>
           </select>
-
         </div>
 
         <div class="form-group" style="margin-bottom: 1rem">
@@ -34,7 +34,7 @@
           </p>
           <p style="color: red"
              *ngIf="facilityForm.controls.area.hasError('min')&& (facilityForm.controls.area.touched)">
-            Không thể bằng 0
+            Phải không âm
           </p>
         </div>
 
@@ -46,7 +46,7 @@
             Không để trống
           </p>
           <p style="color: red"
-             *ngIf="facilityForm.controls.cost.hasError('pattern')&& (facilityForm.controls.cost.touched)">
+             *ngIf="facilityForm.controls.cost.hasError('min')&& (facilityForm.controls.cost.touched)">
             Không âm
           </p>
         </div>
@@ -62,7 +62,8 @@
             Không âm
           </p>
         </div>
-        <div class="form-group" style="margin-bottom: 1rem" >
+
+        <div class="form-group" style="margin-bottom: 1rem"  *ngIf="idFacilityType ==1 || idFacilityType==2">
           <label>Tiêu chuẩn phòng</label>
           <input class="form-control" type="text" name="standardRoom" formControlName="standardRoom">
           <p style="color: red"
@@ -70,7 +71,7 @@
             Không để trống
           </p>
         </div>
-        <div class="form-group"  >
+        <div class="form-group" *ngIf="idFacilityType==1||idFacilityType==2" >
           <label>Mô tả tiện nghi khác</label>
           <input class="form-control" type="text" name="descriptionOtherConvenience" formControlName="descriptionOtherConvenience">
           <p style="color: red"
@@ -78,7 +79,7 @@
             Không để trống
           </p>
         </div>
-        <div class="form-group" >
+        <div class="form-group" *ngIf="idFacilityType==1">
           <label>Diện tích hồ bơi</label>
           <input class="form-control" type="number" name="poolArea" formControlName="poolArea">
           <p style="color: red"
@@ -86,11 +87,11 @@
             Không để trống
           </p>
           <p style="color: red"
-             *ngIf="facilityForm.controls.poolArea.hasError('pattern')&& (facilityForm.controls.poolArea.touched)">
+             *ngIf="facilityForm.controls.poolArea.hasError('min')&& (facilityForm.controls.poolArea.touched)">
             Không âm
           </p>
         </div>
-        <div class="form-group" >
+        <div class="form-group" *ngIf="idFacilityType == 1 || idFacilityType == 2">
           <label>Số tầng</label>
           <input class="form-control" type="number" name="numberOfFloors" formControlName="numberOfFloors">
           <p style="color: red"
@@ -98,10 +99,19 @@
             Không để trống
           </p>
           <p style="color: red"
-             *ngIf="facilityForm.controls.numberOfFloors.hasError('pattern')&& (facilityForm.controls.numberOfFloors.touched)">
+             *ngIf="facilityForm.controls.numberOfFloors.hasError('min')&& (facilityForm.controls.numberOfFloors.touched)">
             Không âm
           </p>
         </div>
+        <div class="form-group" *ngIf="idFacilityType == 3">
+          <label>Dịch vụ miễn phí</label>
+          <input class="form-control" type="text" name="facilityFree" formControlName="facilityFree">
+          <p style="color: red"
+             *ngIf="facilityForm.controls.facilityFree.hasError('required')&& (facilityForm.controls.facilityFree.touched)">
+            Không để trống
+          </p>
+        </div>
+
         <div class="form-group">
           <label>Kiểu thuê</label>
           <select class="form-control w-100" id="add-rentType" formControlName="rentType">
@@ -112,7 +122,8 @@
             Không để trống
           </p>
         </div>
-        <div class="form-group" >
+
+        <div class="form-group">
           <label>URL</label>
           <input class="form-control" type="text" name="url" formControlName="url">
           <p style="color: red"
@@ -123,7 +134,7 @@
 
         <div style="margin-bottom: 1rem;margin-top: 5px">
           <button [routerLink]="['/facility/list-facility']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
-          <button class="btn btn-danger" style="margin-left: 5px">Chỉnh sửa</button>
+          <button class="btn btn-danger" style="margin-left: 5px">Thêm mới</button>
         </div>
       </form>
     </div>

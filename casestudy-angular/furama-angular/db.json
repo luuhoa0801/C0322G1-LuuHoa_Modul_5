@@ -55,6 +55,20 @@
         "name": "Member"
       },
       "id": 5
+    },
+    {
+      "name": "ASSSS",
+      "birthday": "2022-08-04",
+      "gender": true,
+      "idCard": "123345566",
+      "phone": "0901234567",
+      "email": "trung123123@gmail.com",
+      "address": "Bắc Ninh",
+      "customerType": {
+        "id": 3,
+        "name": "Member"
+      },
+      "id": 6
     }
   ],
   "customerType": [
@@ -175,8 +189,14 @@
       "numberOfFloors": 1,
       "facilityFree": "",
       "url": "\\assets\\img\\fu3.jpg",
-      "rentType": 3,
-      "facilityType": "2"
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "facilityType": {
+        "id": 3,
+        "name": "Room"
+      }
     },
     {
       "id": 5,
@@ -190,8 +210,56 @@
       "numberOfFloors": "",
       "facilityFree": "miễn phí bữa ăn ngày đầu tiên",
       "url": "\\assets\\img\\fu3.jpg",
-      "rentType": 3,
-      "facilityType": "3"
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "facilityType": {
+        "id": 3,
+        "name": "Room"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Hoa",
+      "area": 1,
+      "cost": 1,
+      "maxPeople": 1,
+      "standardRoom": "1",
+      "descriptionOtherConvenience": "0",
+      "poolArea": 1,
+      "numberOfFloors": 1,
+      "facilityFree": "",
+      "url": "\\assets\\img\\fu3.jpg",
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "facilityType": {
+        "id": 1,
+        "name": "Villa"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Hoa",
+      "area": 1,
+      "cost": 1,
+      "maxPeople": 1,
+      "standardRoom": "",
+      "descriptionOtherConvenience": "0",
+      "poolArea": "",
+      "numberOfFloors": "",
+      "facilityFree": "a",
+      "url": "\\assets\\img\\fu3.jpg",
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "facilityType": {
+        "id": 3,
+        "name": "Room"
+      }
     }
   ]
 }

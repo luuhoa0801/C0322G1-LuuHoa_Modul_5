@@ -15,5 +15,9 @@ export class FacilityTypeService {
     return this.httpClient.get<FacilityType[]>(' http://localhost:3000/facilityType');
   }
 
+  findById(id: number) {
+    return this.httpClient.get<FacilityType>('http://localhost:3000/facilityType/' + id);
+  }
+
 }
 

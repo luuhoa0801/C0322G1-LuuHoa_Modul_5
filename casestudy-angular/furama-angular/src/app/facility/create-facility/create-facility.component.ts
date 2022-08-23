@@ -33,13 +33,13 @@ export class CreateFacilityComponent implements OnInit {
   facilityTypelist: FacilityType[] = [];
   rentTypeList: RentType[] = [];
 
-  temp:number =1;
+  temp: number = 1;
 
   constructor(private facilityService: FacilityService,
               private facilityTypeService: FacilityTypeService,
               private rentTypeService: RentTypeService,
               private router: Router,
-              private toast:ToastrService) {
+              private toast: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -65,7 +65,7 @@ export class CreateFacilityComponent implements OnInit {
   }
 
   changcility(value: number) {
-    this.temp=value;
+    this.temp = value;
   }
 
   private getAllFacilityType() {
@@ -82,12 +82,18 @@ export class CreateFacilityComponent implements OnInit {
 
   createFacility() {
     const facility = this.facilityForm.value;
-    this.facilityService.CreateFacility(facility).subscribe(next => {
-      alert('thêm mới thành công');
-      this.facilityForm.reset();
-      this.router.navigateByUrl('facility/list-facility');
-    },error => {
-      alert('lỗi');
+    this.facilityTypeService.findById(this.facilityForm.value.facilityType).subscribe(facilityType => {
+      facility.facilityType = facilityType;
+      this.rentTypeService.findById(this.facilityForm.value.rentType).subscribe(rentType => {
+        facility.rentType = rentType;
+        this.facilityService.CreateFacility(facility).subscribe(next => {
+          alert('thêm mới thành công');
+          this.facilityForm.reset();
+          this.router.navigateByUrl('facility/list-facility');
+        }, error => {
+          alert('lỗi');
+        })
+      });
     })
   }
 }

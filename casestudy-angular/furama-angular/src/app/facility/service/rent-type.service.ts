@@ -10,10 +10,15 @@ import {HttpClient} from "@angular/common/http";
 export class RentTypeService {
 
 
-  constructor(private httpClient:HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
-  getListRentType(): Observable<RentType[]>{
+
+  getListRentType(): Observable<RentType[]> {
     return this.httpClient.get<RentType[]>('http://localhost:3000/rentType');
+  }
+
+  findById(id: number): Observable<RentType> {
+    return this.httpClient.get<RentType>('http://localhost:3000/rentType/' + id)
   }
 }
 
