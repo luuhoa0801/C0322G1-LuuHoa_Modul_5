@@ -12,20 +12,12 @@
         <p style="font-weight: 800">Customer</p>
       </div>
     </div>
-    <!--  <div class="col-2"></div>-->
 
-    <!--  <div class="col-3">-->
-    <!--    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left: 2.5rem">-->
-    <!--      <form class="d-flex">-->
-    <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-    <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-    <!--      </form>-->
-    <!--    </nav>-->
-    <!--  </div>-->
-    <div class="col-3" style="margin-left: 5rem;margin-top: 5px">
+    <div class="col-3" style="margin-left: 5rem;margin-top: 5px" >
       <nav class="nav navbar-expand ">
-        <input type="search" class="form-control">
-        <button class="btn btn-primary" type="submit" style="margin-left: 5px">Search</button>
+<!--        (ngModelChange)="search()"-->
+        <input type="search" class="form-control" name="name" [(ngModel)]="searchName"  >
+        <button class="btn btn-primary" type="submit" style="margin-left: 5px" (click)="search()" >Search</button>
       </nav>
     </div>
   </div>
@@ -47,7 +39,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let temp of customerList">
+    <tr *ngFor="let temp of customerList | paginate: { itemsPerPage: 5, currentPage: p }">
       <td>{{temp.id}}</td>
       <td>{{temp.name}}</td>
       <td>{{temp.birthday}}</td>
@@ -72,14 +64,15 @@
     </tbody>
 
   </table>
-  <div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">
-    <button class="btn btn-light">Previous</button>
-    <button class="btn btn-light">1</button>
-    <button class="btn btn-light">2</button>
-    <button class="btn btn-light">3</button>
-    <button class="btn btn-light">4</button>
-    <button class="btn btn-light">Next</button>
-  </div>
+
+<!--  <div style="text-align: end;margin-top: 1rem;margin-bottom: 2rem;margin-right: 2rem">-->
+<!--    <button class="btn btn-light">Previous</button>-->
+<!--    <button class="btn btn-light">1</button>-->
+<!--    <button class="btn btn-light">2</button>-->
+<!--    <button class="btn btn-light">3</button>-->
+<!--    <button class="btn btn-light">4</button>-->
+<!--    <button class="btn btn-light">Next</button>-->
+<!--  </div>-->
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,5 +93,7 @@
     </div>
   </div>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 
 

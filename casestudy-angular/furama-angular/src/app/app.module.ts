@@ -13,6 +13,7 @@ import {CustomerModule} from "./customer/customer.module";
 import {FacilityModule} from "./facility/facility.module";
 import {ContractModule} from "./contract/contract.module";
 import {HttpClientModule} from "@angular/common/http";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -26,12 +27,15 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
+
     ToastrModule.forRoot({
       timeOut: 2000,
       progressBar: true,
       progressAnimation: 'increasing',
       preventDuplicates: true
     }),
+
     // ToastrModule.forRoot(),
     // thoi gian mac dinh cua toast
     CustomerModule,

@@ -20,7 +20,7 @@
 
         <div class="form-group" style="margin-bottom: 1rem">
           <label>Ngày sinh:</label>
-          <input type="text" class="form-control" placeholder="Enter birthday" name="birthday" formControlName="birthday">
+          <input type="date" class="form-control" placeholder="Enter birthday" name="birthday" formControlName="birthday">
           <p style="color: red"
              *ngIf="customerForm.controls.birthday.hasError('required')&& (customerForm.controls.birthday.touched)">
             Không để trống

@@ -48,6 +48,15 @@
       },
       "price": 3333,
       "description": "khong co do"
+    },
+    {
+      "id": 4,
+      "name": {
+        "id": 3,
+        "name": "LG"
+      },
+      "price": 1112222,
+      "description": "rf"
     }
   ]
 }

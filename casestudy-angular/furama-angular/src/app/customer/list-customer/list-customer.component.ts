@@ -9,11 +9,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./list-customer.component.css']
 })
 export class ListCustomerComponent implements OnInit {
+  p:number = 1;
+  // @ts-ignore
+  collection: any[] = this.customerList;
 
   customerList: Customer[] = [];
   id :number ;
   name :string ;
-
+  searchName: string;
   constructor(private customerService: CustomerService,
               private router: Router,) {
   }
@@ -43,5 +46,16 @@ export class ListCustomerComponent implements OnInit {
      this.getAll();
      this.router.navigateByUrl('customer/list-customer')
     })
+  }
+
+  search() {
+    if (this.searchName === ''){
+      this.ngOnInit();
+    }else {
+      console.log(this.searchName);
+      this.customerService.searchCustomer(this.searchName).subscribe(next =>{
+        this.customerList = next;
+      })
+    }
   }
 }

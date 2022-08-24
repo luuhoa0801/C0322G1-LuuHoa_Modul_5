@@ -29,7 +29,8 @@
       }
     },
     {
-      "name": "Sdasdas",
+      "id": 4,
+      "name": "AAAAAAA",
       "birthday": "2022-08-18",
       "gender": true,
       "idCard": "131313133",
@@ -39,8 +40,7 @@
       "customerType": {
         "id": 2,
         "name": "Gold"
-      },
-      "id": 4
+      }
     },
     {
       "name": "Lsisssss",
@@ -69,6 +69,20 @@
         "name": "Member"
       },
       "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Hoa Nguyen",
+      "birthday": "2022-08-03",
+      "gender": true,
+      "idCard": "123456789",
+      "phone": "0901234567",
+      "email": "minhtrang@gmail.com",
+      "address": "Hn",
+      "customerType": {
+        "id": 1,
+        "name": "Vip"
+      }
     }
   ],
   "customerType": [
@@ -238,27 +252,6 @@
       "facilityType": {
         "id": 1,
         "name": "Villa"
-      }
-    },
-    {
-      "id": 7,
-      "name": "Hoa",
-      "area": 1,
-      "cost": 1,
-      "maxPeople": 1,
-      "standardRoom": "",
-      "descriptionOtherConvenience": "0",
-      "poolArea": "",
-      "numberOfFloors": "",
-      "facilityFree": "a",
-      "url": "\\assets\\img\\fu3.jpg",
-      "rentType": {
-        "id": 2,
-        "name": "Month"
-      },
-      "facilityType": {
-        "id": 3,
-        "name": "Room"
       }
     }
   ]

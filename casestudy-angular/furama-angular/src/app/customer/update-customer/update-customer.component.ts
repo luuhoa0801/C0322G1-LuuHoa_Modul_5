@@ -43,6 +43,7 @@ export class UpdateCustomerComponent implements OnInit {
   private getCustomer(id: number) {
     this.customerService.findById(id).subscribe(customer => {
       this.customerForm.patchValue(customer);
+      console.log(customer);
       this.customerTypeService.getListCustomerType().subscribe(next => {
         this.customerTypeList = next;
         for (const item of next) {
