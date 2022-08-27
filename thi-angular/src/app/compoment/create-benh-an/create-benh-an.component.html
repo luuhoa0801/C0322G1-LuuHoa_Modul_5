@@ -1,0 +1,51 @@
+
+<div class="container" style="width: 50rem;margin: auto">
+  <div class="row">
+    <div class="bg-white">
+      <div class="h1 center-box "> Thêm mới bệnh án </div>
+      <form class="p-3" [formGroup]="benhAnForm" (ngSubmit)="createBenhAn()">
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Mã bệnh án :</label>
+          <input type="text" class="form-control"  name="maBenhAn" formControlName="maBenhAn">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem" >
+          <label> Bệnh nhân : </label>
+          <select  name="benhNhans"  class="form-control custom-select bg-light" id="benhNhans" formControlName="benhNhans" >
+            <option *ngFor="let item of benhNhanList" [ngValue]="item">{{item.ten}}</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Ngày vào:</label>
+          <input type="date" class="form-control"  name="ngayVao" formControlName="ngayVao">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Ngày ra:</label>
+          <input type="date" class="form-control"  name="ngayRa" formControlName="ngayRa">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Lido:</label>
+          <input type="text" class="form-control" name="liDo"  formControlName="liDo" >
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Phương pháp:</label>
+          <input type="text" class="form-control"  name="phuongPhap" formControlName="phuongPhap">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Bác sĩ:</label>
+          <input type="text" class="form-control"  name="bacSi" formControlName="bacSi">
+        </div>
+
+        <div style="margin-bottom: 1rem;margin-top: 5px">
+          <button [routerLink]="['']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
+          <button class="btn btn-danger" style="margin-left: 5px">Thêm mới</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

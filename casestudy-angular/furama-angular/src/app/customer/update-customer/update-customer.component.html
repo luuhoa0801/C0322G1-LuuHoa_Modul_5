@@ -12,10 +12,7 @@
              *ngIf="customerForm.controls.name.hasError('required')&& (customerForm.controls.name.touched)">
             Không để trống
           </p>
-          <p style="color: red"
-             *ngIf="customerForm.controls.name.hasError('pattern')&& (customerForm.controls.name.touched)">
-            Phải đúng định dạng
-          </p>
+
         </div>
 
         <div class="form-group" style="margin-bottom: 1rem">

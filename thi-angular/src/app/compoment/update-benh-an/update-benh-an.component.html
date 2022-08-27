@@ -1,0 +1,81 @@
+
+<div class="container" style="width: 50rem;margin: auto">
+  <div class="row">
+    <div class="bg-white">
+      <div class="h1 center-box "> Chỉnh sửa bệnh án </div>
+      <form class="p-3" [formGroup]="benhAnForm" (ngSubmit)="updateBenhAn()">
+        <input type="text" hidden formControlName="id">
+       <div class="form-group" style="margin-bottom: 1rem">
+         <label >Mã bệnh án</label>
+         <input readonly formControlName="maBenhAn" style="margin-left: 2rem">
+       </div>s
+
+        <div class="form-group" style="margin-bottom: 1rem" >
+          <label> Bệnh nhân : </label>
+          <select  name="benhNhans"  class="form-control custom-select bg-light" id="benhNhans" formControlName="benhNhans" >
+            <option *ngFor="let item of benhNhanList" [ngValue]="item">{{item.ten}}</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Ngày vào:</label>
+          <input type="text" class="form-control"  name="ngayVao" formControlName="ngayVao">
+          <p style="color: red"
+             *ngIf="benhAnForm.controls.ngayVao.hasError('required')&& (benhAnForm.controls.ngayVao.touched)">
+            Không để trống
+          </p>
+        </div>
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Ngày ra:</label>
+          <input type="text" class="form-control"  name="ngayRa" formControlName="ngayRa">
+          <p style="color: red"
+             *ngIf="benhAnForm.controls.ngayRa.hasError('required')&& (benhAnForm.controls.ngayRa.touched)">
+            Không để trống
+          </p>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Lido:</label>
+          <input type="text" class="form-control"  formControlName="liDo" >
+          <p style="color: red"
+             *ngIf="benhAnForm.controls.liDo.hasError('required')&& (benhAnForm.controls.liDo.touched)">
+            Không để trống
+          </p>
+
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Phương pháp:</label>
+          <input type="text" class="form-control"  name="phuongPhap" formControlName="phuongPhap">
+          <p style="color: red"
+             *ngIf="benhAnForm.controls.phuongPhap.hasError('required')&& (benhAnForm.controls.phuongPhap.touched)">
+            Không để trống
+          </p>
+
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem">
+          <label>Bác sĩ:</label>
+          <input type="text" class="form-control"  name="bacSi" formControlName="bacSi">
+          <p style="color: red"
+             *ngIf="benhAnForm.controls.bacSi.hasError('required')&& (benhAnForm.controls.bacSi.touched)">
+            Không để trống
+          </p>
+          <p style="color: red"
+             *ngIf="benhAnForm.controls.bacSi.hasError('pattern')&& (benhAnForm.controls.bacSi.touched)">
+            Phải đúng định dạng tên
+          </p>
+        </div>
+
+
+
+
+
+        <div style="margin-bottom: 1rem;margin-top: 5px">
+          <button [routerLink]="['']" type="submit" class="btn btn-primary" value="Back"> Quay lại</button>
+          <button class="btn btn-danger" style="margin-left: 5px">Chỉnh sửa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,6 @@ import {UpdateCustomerComponent} from "./update-customer/update-customer.compone
 import {ListCustomerComponent} from "./list-customer/list-customer.component";
 import {NgxPaginationModule} from "ngx-pagination";
 
-
 @NgModule({
   declarations: [
     CreateCustomerComponent,

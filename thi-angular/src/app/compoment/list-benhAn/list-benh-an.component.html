@@ -3,61 +3,60 @@
     <div class="col-2">
       <div class="w-100 footer" style="margin-left: 2rem;margin-top: 5px">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomer ">
-          <a [routerLink]="['/customer/create-customer']"  class="text-white"> Create</a>
+          <a [routerLink]="['create']"  class="text-white"> Create</a>
         </button>
       </div>
     </div>
     <div class="col-6">
       <div class="row fs-2" style="margin-left: 20rem">
-        <p style="font-weight: 800">Customer</p>
+        <p style="font-weight: 800">Bệnh Án</p>
       </div>
     </div>
-
     <div class="col-3" style="margin-left: 5rem;margin-top: 5px" >
       <nav class="nav navbar-expand ">
-<!--        (ngModelChange)="search()"-->
+        <!--        (ngModelChange)="search()"-->
         <input type="search" class="form-control" name="name" [(ngModel)]="searchName"  >
         <button class="btn btn-primary" type="submit" style="margin-left: 5px" (click)="search()" >Search</button>
       </nav>
     </div>
+
   </div>
 
   <table id="tableCustomer" class="table table-success table-striped"
          border="2" style="border-collapse:  collapse;padding-top: 10px;width: 96%;margin: auto">
     <thead>
     <tr>
-      <th>No.</th>
-      <th>Name</th>
-      <th>BirthDay</th>
-      <th>Gender</th>
-      <th>IdCard</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>CustomerType</th>
-      <th>Manipulation</th>
+      <th>Id</th>
+      <th>Mã bệnh án</th>
+      <th>Mã bệnh nhân</th>
+      <th>Ngày vào</th>
+      <th>Ngày ra</th>
+      <th>Lido nhập viện</th>
+      <th>Phương pháp điều trị</th>
+      <th>Bác sĩ điều trị</th>
+      <th>Tác vụ</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let temp of customerList | paginate: { itemsPerPage: 5, currentPage: p }">
+    <tr *ngFor="let temp of benhAnList ">
       <td>{{temp.id}}</td>
-      <td>{{temp.name}}</td>
-      <td>{{temp.birthday}}</td>
-      <td *ngIf="temp.gender==true">Nam</td>
-      <td *ngIf="temp.gender==false">Nữ</td>
-      <td>{{temp.idCard}}</td>
-      <td>{{temp.phone}}</td>
-      <td>{{temp.email}}</td>
-      <td>{{temp.address}}</td>
-      <td>{{temp.customerType.name}}</td>
+      <td>{{temp.maBenhAn}}</td>
+      <td>{{temp.benhNhans.ten}}</td>
+      <td>{{temp.ngayVao}}</td>
+      <td>{{temp.ngayRa}}</td>
+      <td>{{temp.liDo}}</td>
+      <td>{{temp.phuongPhap}}</td>
+      <td>{{temp.bacSi}}</td>
+
+
       <td>
         <button type="button" class="btn btn-primary">
-          <a [routerLink]="['../update-customer', temp.id]" style="color: white">Edit</a>
+          <a [routerLink]="['update', temp.id]" style="color: white">Sửa</a>
         </button>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                (click)="valueDelete(temp.id, temp.name)"
+                (click)="valueDelete(temp.id, temp.maBenhAn)"
                 style="margin-left: 5px">
-          Delete
+          Xóa
         </button>
       </td>
     </tr>
@@ -66,8 +65,6 @@
   </table>
 
 
-
-  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -76,18 +73,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Bạn có chắc chắn muốn xóa {{name}} hay không ???
+          Bạn có chắc chắn muốn xóa {{maBenhAn}} hay không ???
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="delete(id)" data-bs-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quay lại</button>
+          <button type="button" class="btn btn-primary" (click)="delete(id)" data-bs-dismiss="modal">Xóa</button>
         </div>
       </div>
     </div>
   </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"  (click)="previousPage()"><a class="page-link">Previous </a></li>
+      <li class="page-item"><a class="page-link" >{{page + 1}}</a></li>
+      <li class="page-item"  (click)="nextPage()"><a class="page-link">Next</a></li>
+    </ul>
+  </nav>
 </div>
-
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-
-
